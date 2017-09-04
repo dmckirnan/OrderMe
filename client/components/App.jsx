@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Styles from './../styles/styles.scss';
+import axios from 'axios';
+import Styles from './../styles/App.scss';
 
 import Login from './Login.jsx';
 
@@ -11,10 +12,15 @@ class App extends Component {
       view: 'login',
     }
     this.authenticate = this.authenticate.bind(this);
+    this.addOrder = this.addOrder.bind(this);
+    this.updateOrder = this.updateOrder.bind(this);
+    this.removeOrder = this.removeOrder.bind(this);
   }
 
   componentDidMount() {
-
+    if (this.state.view === 'cart') {
+      ///
+    }
   }
 
   authenticate() {
@@ -40,12 +46,16 @@ class App extends Component {
           <Login authenticate={this.authenticate}/>
         </div>
       )
-    } else {
+    } else if (this.state.view === 'menu') {
       return (
       <div id='appContainer'>
-        <h1>OrderMe</h1>
+        <h1>Select Your Items</h1>
       </div>
       )
+    } else if (this.state.view === 'cart') {
+      <div id='cartContainer'>
+        <h1>Order Summary: </h1>
+      </div>
     }
   }
 }
