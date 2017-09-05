@@ -15,7 +15,7 @@ class App extends Component {
       view: 'login',
       auth: false,
       redirect: false,
-    }
+    };
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.createView = this.createView.bind(this);
@@ -40,17 +40,17 @@ class App extends Component {
 
     axios.post('/verifyUser', {
       username: e.target.username.value,
-      password: e.target.password.value
-    }).then(response => {
+      password: e.target.password.value,
+    }).then((response) => {
       if (response.data === true) {
         redirect = false;
         auth = true;
         view = 'menu';
-        this.setState({ auth: auth, view: view, redirect: redirect });
+        this.setState({ auth, view, redirect });
       } else {
         view = 'login';
         redirect = true;
-        this.setState({ view: view, redirect: redirect });
+        this.setState({ view, redirect });
       }
     });
     e.target.username.value = '';
@@ -58,11 +58,11 @@ class App extends Component {
   }
 
   createView() {
-    let obj = Object.assign({}, this.state);
+    const obj = Object.assign({}, this.state);
     let view = obj.view;
     view = 'create';
 
-    this.setState({ view: view });
+    this.setState({ view });
   }
 
   handleCreate(e) {
@@ -75,17 +75,17 @@ class App extends Component {
 
     axios.post('/createUser', {
       username: e.target.username.value,
-      password: e.target.password.value
-    }).then(response => {
+      password: e.target.password.value,
+    }).then((response) => {
       if (response.data === true) {
         redirect = false;
         auth = true;
         view = 'menu';
-        this.setState({ auth: auth, view: view, redirect: redirect });
+        this.setState({ auth, view, redirect });
       } else {
         view = 'create';
         redirect = true;
-        this.setState({ view: view, redirect: redirect });
+        this.setState({ view, redirect });
       }
     });
     e.target.username.value = '';
@@ -111,28 +111,28 @@ class App extends Component {
   render() {
     if (this.state.view === 'login') {
       return (
-        <div id='loginContainer'>
+        <div id="loginContainer">
           <Login auth={this.handleAuth} create={this.createView} redirect={this.state.redirect} />
         </div>
-      )
+      );
     } else if (this.state.view === 'create') {
       return (
-        <div id='createContainer'>
+        <div id="createContainer">
           <Create create={this.handleCreate} redirect={this.state.redirect} />
         </div>
-      )
+      );
     } else if (this.state.view === 'menu' && this.state.auth === true) {
       return (
-        <div id='menuContainer'>
+        <div id="menuContainer">
           <Menu />
         </div>
-      )
+      );
     } else if (this.state.view === 'cart') {
       return (
-        <div id='cartContainer'>
+        <div id="cartContainer">
           <Cart />
         </div>
-      )
+      );
     }
   }
 }

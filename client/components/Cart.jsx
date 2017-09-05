@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const Cart = props => {
+const Cart = (props) => {
   return (
     <form>
       <button></button>
     </form>
-  )
-}
+  );
+};
 
 export default Cart;
