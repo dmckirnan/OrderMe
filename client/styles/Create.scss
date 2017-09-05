@@ -20,6 +20,12 @@
   text-align: center;
 }
 
+#createForm h3 {
+  text-align: center;
+  color: red;
+  font-family: 'Cursive',
+}
+
 #createForm input {
   display: block;
   margin: 0 auto;
@@ -51,5 +57,6 @@
 
 #createForm button:hover {
   background: #356094;
-	border: solid 1px #2A4E77;
+  border: solid 1px #2A4E77;
+  cursor: pointer;
 }

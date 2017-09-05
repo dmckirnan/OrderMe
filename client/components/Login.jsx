@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Styles from './../styles/Login.scss';
 
 const Login = props => {
-  let text = props.attempted === true ? 'Login Attempt Unsuccessful' : '';
+  let text = props.redirect === true ? 'Login Attempt Unsuccessful' : '';
 
   return (
     <form id="loginForm" onSubmit={props.auth}>
