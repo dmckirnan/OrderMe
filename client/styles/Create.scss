@@ -1,4 +1,4 @@
-#loginForm {
+#createForm {
   position: absolute;
   top: 30%;
   right: 0;
@@ -16,11 +16,11 @@
   font-family: "Roboto", helvetica, arial, sans-serif;
 }
 
-#loginForm h2 {
+#createForm h2 {
   text-align: center;
 }
 
-#loginForm input {
+#createForm input {
   display: block;
   margin: 0 auto;
   color: #666B85;
@@ -31,7 +31,7 @@
   max-width: 100%;
 }
 
-#loginForm button {
+#createForm button {
   display: block;
   margin: 0 auto;
   font-size: 14px;
@@ -47,22 +47,9 @@
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
 
   padding: 7px;
-  margin-bottom: 15px;
 }
 
-#loginForm button:hover {
+#createForm button:hover {
   background: #356094;
-  border: solid 1px #2A4E77;
-  cursor: pointer;
-}
-
-#loginForm a {
-  display: block;
-  font-size: 12px;
-  text-align: center;
-  text-decoration: underline;
-}
-
-#loginForm a:hover {
-  cursor: pointer;
+	border: solid 1px #2A4E77;
 }

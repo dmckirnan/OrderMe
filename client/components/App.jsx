@@ -3,6 +3,7 @@ import axios from 'axios';
 import Styles from './../styles/App.scss';
 
 import Login from './Login.jsx';
+import Create from './Create.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -10,8 +11,11 @@ class App extends Component {
     this.state = {
       orders: [],
       view: 'login',
+      auth: false,
     }
-    this.authenticate = this.authenticate.bind(this);
+    this.handleAuth = this.handleAuth.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
+    this.createView = this.createView.bind(this);
     this.addOrder = this.addOrder.bind(this);
     this.updateOrder = this.updateOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
@@ -23,8 +27,49 @@ class App extends Component {
     }
   }
 
-  authenticate() {
+  createView() {
+    let obj = Object.assign({}, this.state);
+    let view = obj.view;
+    view = 'create';
+    this.setState({ view: view });
+  }
 
+  handleAuth(e) {
+    e.preventDefault();
+    
+    const obj = Object.assign({}, this.state);
+    let auth = obj.auth;
+    let view = obj.view;
+
+    axios.post('/verifyUser', {
+      username: e.target.username.value,
+      password: e.target.password.value
+    }).then(response => {
+      if (response.data === true) {
+        auth = true;
+        view = 'menu';
+        this.setState({ auth: auth, view: view });
+      }
+    });
+  }
+
+  handleCreate(e) {
+    e.preventDefault();
+
+    const obj = Object.assign({}, this.state);
+    let auth = obj.auth;
+    let view = obj.view;
+
+    axios.post('/createUser', {
+      username: e.target.username.value,
+      password: e.target.password.value
+    }).then(response => {
+      if (response.data === true) {
+        auth = true;
+        view = 'menu';
+        this.setState({ auth: auth, view: view });
+      }
+    });
   }
 
   addOrder() {
@@ -43,16 +88,22 @@ class App extends Component {
     if (this.state.view === 'login') {
       return (
         <div id='loginContainer'>
-          <Login authenticate={this.authenticate}/>
+          <Login auth={this.handleAuth} create={this.createView} />
         </div>
       )
-    } else if (this.state.view === 'menu') {
+    } else if (this.state.view === 'create') {
       return (
-      <div id='appContainer'>
-        <h1>Select Your Items</h1>
-      </div>
+        <div id='createContainer'>
+          <Create create={this.handleCreate} />
+        </div>
       )
-    } else if (this.state.view === 'cart') {
+    } else if (this.state.view === 'menu' && this.state.auth === true) {
+      return (
+        <div id='appContainer'>
+          <h1>Select Your Items</h1>
+        </div>
+      )
+    } else if (this.state.view === 'cart' && this.state.auth === true) {
       <div id='cartContainer'>
         <h1>Order Summary: </h1>
       </div>
