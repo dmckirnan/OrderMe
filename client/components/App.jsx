@@ -128,9 +128,11 @@ class App extends Component {
         </div>
       )
     } else if (this.state.view === 'cart') {
-      <div id='cartContainer'>
-        <Cart />
-      </div>
+      return (
+        <div id='cartContainer'>
+          <Cart />
+        </div>
+      )
     }
   }
 }

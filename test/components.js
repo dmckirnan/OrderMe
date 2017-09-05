@@ -12,6 +12,8 @@ describe('<App />', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.state().view).to.equal('login');
     expect(wrapper.state().orders).to.deep.equal([]);
+    expect(wrapper.state().auth).to.equal(false);
+    expect(wrapper.state().redirect).to.equal(false);
   });
   it('renders a <Login /> component if view is equal to login', () => {
     const wrapper = shallow(<App />);
@@ -41,13 +43,13 @@ describe('<App /> methods', () => {
 
   });
   it('handleAuth method', () => {
-    spy(App.prototype, 'handleAuth');
+    
   });
-  it('createView method', () => {
-    const wrapper = shallow(<App />);
+  it('createView method should change view to create', () => {
     spy(App.prototype, 'createView');
+    const wrapper = mount(<App />);
     wrapper.find('#createLink').simulate('click');
-    expect(App.prototype.createView).toHaveBeenCalled();
+    expect(App.prototype.createView.calledOnce).to.equal(true);
     expect(wrapper.state().view).to.equal('create');
   });
 })

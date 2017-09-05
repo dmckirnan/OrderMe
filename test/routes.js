@@ -8,7 +8,7 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('/createUser', () => {
-  it('should create a user in DB', () => {
+  it('should create a user in DB', (done) => {
     const user = {
       username: 'david',
       password: '123',
@@ -18,13 +18,11 @@ describe('/createUser', () => {
       .send(user)
       .end((err, res) => {
         res.should.have.status(200);
-        res.body.should.be.a('object');
-        res.body.user.should.have.property('username');
-        res.body.user.should.have.property('password');
+        res.body.should.equal(true);
       done();
     });
   });
-  it('should not create a user without password field', () => {
+  it('should not create a user without password field', (done) => {
     const user = {
       username: 'james',
     };
@@ -33,14 +31,11 @@ describe('/createUser', () => {
       .send(user)
       .end((err, res) => {
         res.should.have.status(200);
-        res.body.should.be.a('object');
-        res.body.should.have.property('errors');
-        res.body.errors.should.have.property('password');
-        res.body.errors.password.should.have.property('kind').eql('required');
+        res.body.should.equal(false);
       done();
     });
   });
-  it('should not create a user without password field', () => {
+  it('should not create a user without username field', (done) => {
     const user = {
       password: '123',
     };
@@ -49,14 +44,11 @@ describe('/createUser', () => {
       .send(user)
       .end((err, res) => {
         res.should.have.status(200);
-        res.body.should.be.a('object');
-        res.body.should.have.property('errors');
-        res.body.errors.should.have.property('username');
-        res.body.errors.username.should.have.property('kind').eql('required');
+        res.body.should.equal(false);
       done();
     });
   });
-  it('should not create a user with a username that already exists', () => {
+  it('should not create a user with a username that already exists', (done) => {
     const user = {
       username: 'david',
       password: '456',
@@ -66,8 +58,7 @@ describe('/createUser', () => {
       .send(user)
       .end((err, res) => {
         res.should.have.status(200);
-        res.body.should.be.a('object');
-        res.body.should.have.property('errors');
+        res.body.should.equal(false);
       done();
     });
   });
@@ -75,16 +66,13 @@ describe('/createUser', () => {
 
 describe('/verifyUser', () => {
   it('should get a user from DB by username', (done) => {
-    const user = new User({ username: 'test', password: '123456' });
-    user.save((err, user) => {
       chai.request(server)
-        .get('/verifyUser')
-        .send(user)
+        .post('/verifyUser')
+        .send({username: 'david', password: '123'})
         .end((err, res) => {
           res.should.have.status(200);
-          res.body.should.be.a('object');
+          res.body.should.equal(true);
         done();
       });
     });
-  });
 });
