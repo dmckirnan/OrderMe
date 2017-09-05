@@ -4,6 +4,8 @@ import Styles from './../styles/App.scss';
 
 import Login from './Login.jsx';
 import Create from './Create.jsx';
+import Menu from './Menu.jsx';
+import Cart from './Cart.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -121,13 +123,15 @@ class App extends Component {
       )
     } else if (this.state.view === 'menu' && this.state.auth === true) {
       return (
-        <div id='appContainer'>
+        <div id='menuContainer'>
           <h1>Select Your Items</h1>
+          <Menu />
         </div>
       )
     } else if (this.state.view === 'cart' && this.state.auth === true) {
       <div id='cartContainer'>
         <h1>Order Summary: </h1>
+        <Cart />
       </div>
     }
   }
