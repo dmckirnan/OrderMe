@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 const Cart = props => {
   return (
-    <div id='cart'>
-      Hi
-    </div>
+    <form>
+      <button></button>
+    </form>
   )
 }
 

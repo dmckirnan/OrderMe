@@ -124,13 +124,11 @@ class App extends Component {
     } else if (this.state.view === 'menu' && this.state.auth === true) {
       return (
         <div id='menuContainer'>
-          <h1>Select Your Items</h1>
           <Menu />
         </div>
       )
-    } else if (this.state.view === 'cart' && this.state.auth === true) {
+    } else if (this.state.view === 'cart') {
       <div id='cartContainer'>
-        <h1>Order Summary: </h1>
         <Cart />
       </div>
     }

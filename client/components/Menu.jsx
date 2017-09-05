@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 const Menu = props => {
   return (
-    <div id='menu'>
-      Hi
-    </div>
+    <form>
+      <button></button>
+    </form>
   )
 }
 
