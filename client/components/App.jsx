@@ -12,6 +12,7 @@ class App extends Component {
       orders: [],
       view: 'login',
       auth: false,
+      attemptedLogin: false,
     }
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
@@ -36,10 +37,11 @@ class App extends Component {
 
   handleAuth(e) {
     e.preventDefault();
-    
+
     const obj = Object.assign({}, this.state);
     let auth = obj.auth;
     let view = obj.view;
+    let attempted = obj.attemptedLogin;
 
     axios.post('/verifyUser', {
       username: e.target.username.value,
@@ -49,6 +51,10 @@ class App extends Component {
         auth = true;
         view = 'menu';
         this.setState({ auth: auth, view: view });
+      } else {
+        view = 'login';
+        attempted = true;
+        this.setState({ view: view, attemptedLogin: attempted });
       }
     });
   }
@@ -68,6 +74,11 @@ class App extends Component {
         auth = true;
         view = 'menu';
         this.setState({ auth: auth, view: view });
+      } else {
+        view = 'login';
+        this.setState({ view: view });
+        e.target.username.value = '';
+        e.target.password.value = '';
       }
     });
   }
@@ -88,7 +99,7 @@ class App extends Component {
     if (this.state.view === 'login') {
       return (
         <div id='loginContainer'>
-          <Login auth={this.handleAuth} create={this.createView} />
+          <Login auth={this.handleAuth} create={this.createView} attempted={this.state} />
         </div>
       )
     } else if (this.state.view === 'create') {
