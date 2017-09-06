@@ -125,7 +125,7 @@ class App extends Component {
   render() {
     if (this.state.view === 'home') {
       return (
-        <div id="homeContainer">
+        <div>
           <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} submitOrder={this.submitOrder} cart={this.state.cart} />
         </div>
       )

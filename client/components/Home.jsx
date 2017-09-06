@@ -5,7 +5,7 @@ import Cart from './Cart.jsx';
 
 const Home = props => {
   return (
-    <div>
+    <div id='homeContainer'>
       <header id='homeHeader'>
         <h1 id='title'>OrderMe</h1>
         <button id='homeLogin'>Log In</button>
