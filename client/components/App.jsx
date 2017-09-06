@@ -4,14 +4,18 @@ import Styles from './../styles/App.scss';
 
 import Login from './Login.jsx';
 import Create from './Create.jsx';
-import Menu from './Menu.jsx';
+import Home from './Home.jsx';
+import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cart: [],
+      cart: {
+        items: [],
+        total: 0,
+      },
       view: 'login',
       auth: false,
       redirect: false,
@@ -20,16 +24,14 @@ class App extends Component {
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.createView = this.createView.bind(this);
-    this.fetchItems = this.fetchItems.bind(this);
+    this.fetchProducts = this.fetchProducts.bind(this);
     this.addOrder = this.addOrder.bind(this);
     this.updateOrder = this.updateOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
   }
 
   componentDidMount() {
-    if (this.state.view === 'cart') {
-      this.fetchOrder();
-    }
+    this.fetchProducts();
   }
 
   handleAuth(e) {
@@ -94,7 +96,7 @@ class App extends Component {
     e.target.password.value = '';
   }
 
-  fetchItems(e) {
+  fetchProducts(e) {
 
   }
 
@@ -123,10 +125,10 @@ class App extends Component {
           <Create create={this.handleCreate} redirect={this.state.redirect} />
         </div>
       );
-    } else if (this.state.view === 'menu' && this.state.auth === true) {
+    } else if (this.state.view === 'menu') {
       return (
         <div id="menuContainer">
-          <Menu />
+          <Menu auth={this.state.auth} />
         </div>
       );
     } else if (this.state.view === 'cart') {

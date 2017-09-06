@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import MenuItem from "./MenuItem";
+import PrdouctItem from "./ProductItem";
 import Cart from "./Cart.jsx";
 
-const Menu = props => {
+const ProductList = props => {
   return (
     <form>
       <button />
-      <Cart />
+      {products}
     </form>
   );
 };
 
-export default Menu;
+export default ProductList;
