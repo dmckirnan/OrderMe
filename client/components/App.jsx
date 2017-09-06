@@ -18,7 +18,7 @@ class App extends Component {
         total: 0,
       },
       products: [],
-      view: 'login',
+      view: 'home',
       auth: false,
       redirect: false,
     };
@@ -34,6 +34,18 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchProducts();
+    if (this.state.products.length === 0) this.fetchProducts();
+  }
+
+  fetchProducts() {
+    const obj = Object.assign({}, this.state);
+    let products = obj.products;
+
+    axios.get('/getProducts')
+      .then(data => {
+        products = data.data;
+        this.setState({ products });
+      });
   }
 
   handleAuth(e) {
@@ -96,10 +108,6 @@ class App extends Component {
     });
     e.target.username.value = '';
     e.target.password.value = '';
-  }
-
-  fetchProducts(e) {
-
   }
 
   addToCart() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from '../styles/Home.scss';
 
 import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';

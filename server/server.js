@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const userController = require('./controllers/user.js');
 const orderController = require('./controllers/order.js');
 const productController = require('./controllers/product.js');
+const dataManager = require('./../utils/dataManager.js');
 
 const app = express();
 
@@ -15,7 +16,9 @@ app.use(bodyParser.json());
 app.use('/static', express.static(path.join(__dirname, '..', 'build')));
 
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'build/index.html')));
+app.get('/', dataManager.post, (req, res) => res.sendFile(path.join(__dirname, '..', 'build/index.html')));
+
+
 app.post('/verifyUser', userController.verify);
 app.post('/createUser', userController.create);
 
@@ -26,7 +29,6 @@ app.delete('/deleteOrder', orderController.delete);
 
 
 app.get('/getProducts', productController.get);
-app.post('/postProduct', productController.create);
 app.delete('/deleteProducts', productController.drop);
 
 

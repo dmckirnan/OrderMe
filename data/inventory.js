@@ -8,7 +8,7 @@ const Inventory =
   },
   {
     'sku': 1001,
-    'name': 'Vizio Television 42"',
+    'name': 'Vizio Television 42inch',
     'price': 199.99,
     'quantity': 12,
   },

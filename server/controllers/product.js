@@ -2,21 +2,21 @@ const Product = require('./../models/product.js');
 
 const productController = {
   create: (req, res) => {
-    Product.findOne({ sku: req.body.sku }, (err, result) => {
+    Product.findOne({ sku: req.sku }, (err, result) => {
       if (result) return res.status(200).send(false);
-      else if (req.body.sku && req.body.name && req.body.price && req.body.quantity) {
+      else if (req.sku && req.name && req.price && req.quantity) {
         Product.create({
-          sku: req.body.sku,
-          name: req.body.name,
-          price: req.body.price,
-          quantity: req.body.quantity
+          sku: req.sku,
+          name: req.name,
+          price: req.price,
+          quantity: req.quantity
         });
       } else return res.status(200).send(false);
     });
   },
 
   get: (req, res) => {
-    let query = Product.find({});
+    let query = Product.find({}).sort({ sku: 1 });
     query.exec((err, products) => {
       if (err) res.send(err);
       return res.send(products);
