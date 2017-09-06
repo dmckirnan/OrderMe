@@ -3,7 +3,7 @@ import React from 'react';
 const Cart = (props) => {
   return (
     <form>
-      <button></button>
+      <button />
     </form>
   );
 };

@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orders: [],
+      cart: [],
       view: 'login',
       auth: false,
       redirect: false,
@@ -19,6 +19,7 @@ class App extends Component {
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.createView = this.createView.bind(this);
+    this.fetchItems = this.fetchItems.bind(this);
     this.addOrder = this.addOrder.bind(this);
     this.updateOrder = this.updateOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
@@ -92,12 +93,12 @@ class App extends Component {
     e.target.password.value = '';
   }
 
-  fetchOrder(e) {
+  fetchItems(e) {
 
   }
 
   addOrder() {
-
+    
   }
 
   updateOrder() {
