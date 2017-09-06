@@ -4,7 +4,7 @@ const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const userController = require('./controllers/User.js');
+const userController = require('./controllers/user.js');
 
 const app = express();
 

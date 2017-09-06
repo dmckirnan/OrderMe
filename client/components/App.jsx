@@ -16,6 +16,7 @@ class App extends Component {
       auth: false,
       redirect: false,
     };
+    
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.createView = this.createView.bind(this);
