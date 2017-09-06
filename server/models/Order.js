@@ -9,5 +9,5 @@ const orderSchema = new Schema({
   items: { type: Array }
 });
 
-const Order = mongoose.model('Order', productSchema);
+const Order = mongoose.model('Order', orderSchema);
 module.exports = Order;

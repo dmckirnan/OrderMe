@@ -7,6 +7,7 @@ import Create from './Create.jsx';
 import Home from './Home.jsx';
 import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
+import Checkout from './Checkout.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
         items: [],
         total: 0,
       },
+      products: [],
       view: 'login',
       auth: false,
       redirect: false,
@@ -112,6 +114,10 @@ class App extends Component {
 
   }
 
+  toggleView() {
+    // one stop shop method to update view from any button
+  }
+
   render() {
     if (this.state.view === 'login') {
       return (
@@ -128,7 +134,7 @@ class App extends Component {
     } else if (this.state.view === 'menu') {
       return (
         <div id="menuContainer">
-          <Menu auth={this.state.auth} />
+          <ProductList auth={this.state.auth} />
         </div>
       );
     } else if (this.state.view === 'cart') {
