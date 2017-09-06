@@ -11,7 +11,7 @@ const Login = props => {
       <input name='username' type='text' placeholder="Username"></input>
       <input name='password' type='password' placeholder='Password'></input>
       <button id="loginButton" type="submit">Login</button>
-      <a id='createLink' onClick={props.create}>New to Order Me? Create An Account!</a>
+      <a id='createLink' onClick={props.toggleView}>New to Order Me? Create An Account!</a>
     </form>
   )
 }

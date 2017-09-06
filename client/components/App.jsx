@@ -25,11 +25,11 @@ class App extends Component {
     
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
-    this.createView = this.createView.bind(this);
+    this.toggleView = this.toggleView.bind(this);
     this.fetchProducts = this.fetchProducts.bind(this);
-    this.addOrder = this.addOrder.bind(this);
-    this.updateOrder = this.updateOrder.bind(this);
-    this.removeOrder = this.removeOrder.bind(this);
+    
+    this.addToCart = this.addToCart.bind(this);
+    this.submitOrder = this.submitOrder.bind(this);
   }
 
   componentDidMount() {
@@ -51,7 +51,7 @@ class App extends Component {
       if (response.data === true) {
         redirect = false;
         auth = true;
-        view = 'menu';
+        view = 'home';
         this.setState({ auth, view, redirect });
       } else {
         view = 'login';
@@ -63,11 +63,11 @@ class App extends Component {
     e.target.password.value = '';
   }
 
-  createView() {
+  toggleView(e) {
     const obj = Object.assign({}, this.state);
     let view = obj.view;
-    view = 'create';
 
+    if (e.target.id == 'createLink') view = 'create';
     this.setState({ view });
   }
 
@@ -86,7 +86,7 @@ class App extends Component {
       if (response.data === true) {
         redirect = false;
         auth = true;
-        view = 'menu';
+        view = 'home';
         this.setState({ auth, view, redirect });
       } else {
         view = 'create';
@@ -102,6 +102,14 @@ class App extends Component {
 
   }
 
+  addToCart() {
+    // hi
+  }
+
+  submitOrder() {
+
+  }
+
   addOrder() {
     
   }
@@ -114,15 +122,17 @@ class App extends Component {
 
   }
 
-  toggleView() {
-    // one stop shop method to update view from any button
-  }
-
   render() {
-    if (this.state.view === 'login') {
+    if (this.state.view === 'home') {
+      return (
+        <div id="homeContainer">
+          <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} submitOrder={this.submitOrder} cart={this.state.cart} />
+        </div>
+      )
+    } else if (this.state.view === 'login') {
       return (
         <div id="loginContainer">
-          <Login auth={this.handleAuth} create={this.createView} redirect={this.state.redirect} />
+          <Login auth={this.handleAuth} toggleView={this.toggleView} redirect={this.state.redirect} />
         </div>
       );
     } else if (this.state.view === 'create') {
@@ -131,16 +141,10 @@ class App extends Component {
           <Create create={this.handleCreate} redirect={this.state.redirect} />
         </div>
       );
-    } else if (this.state.view === 'menu') {
+    } else if (this.state.view === 'checkout') {
       return (
-        <div id="menuContainer">
-          <ProductList auth={this.state.auth} />
-        </div>
-      );
-    } else if (this.state.view === 'cart') {
-      return (
-        <div id="cartContainer">
-          <Cart />
+        <div id="checkoutContainer">
+          <Checkout cart={this.state.cart} />
         </div>
       );
     }
