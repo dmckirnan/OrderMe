@@ -1,24 +1,34 @@
 const Order = require('./../models/order.js');
 
 const orderController = {
-  create(req, res) {
+  create: (req, res) => {
+    let created = Date.now();
     Order.create({
-      name: req.name,
-      phone: req.phone,
+      created,
+      name: req.body.name,
+      phone: req.body.phone,
     }, (err, result) => {
       if (err) console.log(err);
     });
   },
 
-  update(req, res) {
-    Order.find({ phone: req.body.phone }, { $set: { price: req.body.price }}, (err, result) => {
+  update: (req, res) => {
+    Order.find({ created: req.body.created }, { $set: { total: req.body.total } }, { $set: { items: req.body.items } }, (err, result) => {
       if (err) console.log(err);
       res.status(200).send(true);
     });
   },
 
-  delete(req, res) {
-    Order.removeOne({ phone: req.body.phone }, req.body, (err, result) => {
+  get: (req, res) => {
+    let query = Product.find({ created: req.body.created });
+    query.exec((err, product) => {
+      if (err) res.send(err);
+      return res.send(product);
+    });
+  },
+
+  delete: (req, res) => {
+    Order.removeOne({ created: req.body.created }, req.body, (err, result) => {
       if (err) console.log(err);
       res.status(200).send(true);
     });

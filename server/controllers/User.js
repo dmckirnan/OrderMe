@@ -1,7 +1,7 @@
 const User = require('./../models/user.js');
 
 const userController = {
-  verify(req, res) {
+  verify: (req, res) => {
     User.findOne({ username: req.body.username }, (err, result) => {
       if (result === null) return res.status(200).send(false);
       else if (result.password !== req.body.password) return res.status(200).send(false);
@@ -9,7 +9,7 @@ const userController = {
     });
   },
   
-  create(req, res) {
+  create: (req, res) => {
     User.findOne({ username: req.body.username }, (err, result) => {
       if (result) return res.status(200).send(false);
       else if (req.body.username && req.body.password) {
