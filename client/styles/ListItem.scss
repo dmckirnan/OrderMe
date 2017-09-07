@@ -1,4 +1,24 @@
+.listItem {
+  display: inline-block;
+  margin-right: 25px;
+}
+
 .listItem img {
   width: 200px;
   height: 200px;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.listItem p {
+  font-family: 'Cursive';
+  color: black;
+  text-align: center;
+}
+
+.listItem button {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
 }

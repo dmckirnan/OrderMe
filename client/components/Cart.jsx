@@ -1,4 +1,5 @@
 import React from 'react';
+import Styles from './../styles/Cart.scss';
 import CartItem from './CartItem.jsx';
 
 const Cart = (props) => {
@@ -13,13 +14,13 @@ const Cart = (props) => {
   };
 
   return (
-    <div id='cartContainer'>
-      <ul id='cart'>
+    <table id='cartTable'>
+      <tbody>
         {cartArr}
-      </ul>
+      </tbody>
       <p>{props.cart.total}</p>
       <button id='orderSubmit' onClick={props.submitOrder}>Order</button>
-    </div>
+    </table>
   );
 };
 

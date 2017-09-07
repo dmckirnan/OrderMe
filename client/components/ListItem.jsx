@@ -6,8 +6,8 @@ const ListItem = props => {
     <li className='listItem'>
       <p>{props.name}</p>
       <img src={props.image} />
-      <button className='itemButton' onClick={props.addToCart}>Add to Order</button>
       <p>{props.price}</p>
+      <button className='itemButton' onClick={props.addToCart}>Add to Order</button>
     </li>
   );
 };

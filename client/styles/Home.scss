@@ -1,0 +1,39 @@
+#homeHeader {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+
+#homeHeader h1 {
+  font-size: 28px;
+  color: seashell;
+}
+
+#homeHeader button {
+  float: right;
+  margin: 2px;
+}
+
+#homeHeader button:hover {
+  cursor: pointer;
+}
+
+#ad {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  font-size: 44px;
+  text-decoration: underline;
+  color: seashell;
+  margin-bottom: 20px;
+}
+
+#homeContainer:hover #ad {
+  cursor: pointer;
+}
+
+#contentContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}

@@ -3,9 +3,10 @@ import React from 'react';
 
 const CartItem = props => {
   return (
-    <div>
-      <button />
-    </div>
+    <tr className='row'>
+      <td className='col1' />
+      <td className='col2' />
+    </tr>
   );
 };
 
