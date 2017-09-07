@@ -15,10 +15,21 @@
   font-family: 'Cursive';
   color: black;
   text-align: center;
+
+  max-width: 20ch;
 }
 
 .listItem button {
   display: block;
   margin: 0 auto;
   cursor: pointer;
+}
+
+.presalePrice {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.salePrice {
+  color: red;
 }

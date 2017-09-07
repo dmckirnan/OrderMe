@@ -11,6 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      products: [],
+      view: 'home',
       cart: {
         items: [],
         total: 0,
@@ -20,8 +22,6 @@ class App extends Component {
         redirect: false,
         username: '',
       },
-      products: [],
-      view: 'login',
     };
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
@@ -30,6 +30,7 @@ class App extends Component {
     this.addToCart = this.addToCart.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
@@ -77,11 +78,19 @@ class App extends Component {
     e.target.password.value = '';
   }
 
+  handleLogout() {
+    const auth = Object.assign({}, this.state.auth);
+    auth.verified = false;
+    auth.username = '';
+    this.setState({ auth });
+  }
+
   toggleView(e) {
     const obj = Object.assign({}, this.state);
     let view = obj.view;
 
-    if (e.target.id === 'createLink') view = 'create';
+    if (e.target.id === 'createLink' || e.target.id === 'homeCreate') view = 'create';
+    else if (e.target.id === 'homeLogin') view = 'login';
     this.setState({ view });
   }
 
@@ -104,6 +113,10 @@ class App extends Component {
         view = 'home';
         auth.username = temp;
         this.setState({ auth, view });
+      } else if (response.data === false) {
+        view = 'login';
+        auth.redirect = true;
+        this.setState({ view, auth });
       } else {
         view = 'create';
         auth.redirect = true;
@@ -188,7 +201,7 @@ class App extends Component {
     }
     return (
       <div>
-        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} />
+        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} handleLogout={this.handleLogout} />
       </div>
     );
   }

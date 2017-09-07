@@ -13,7 +13,7 @@ const Inventory = [
   },
   {
     sku: 1002,
-    name: 'Copper Bar Cart Stainless Steel',
+    name: 'Copper Bar Cart',
     price: 279.99,
     quantity: 22,
   },

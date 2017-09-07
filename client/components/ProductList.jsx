@@ -11,7 +11,7 @@ const ProductList = (props) => {
   if (!products || products.length === 0) productsArr.push(<ListItem key={0} />);
   else {
     for (let i = 0; i < products.length; i += 1) {
-      productsArr.push(<ListItem addToCart={props.addToCart} itemNum={i + 1} key={i} sku={products[i].sku} image={images[i]} name={products[i].name} price={products[i].price} quantity={products[i].quantity} />)
+      productsArr.push(<ListItem addToCart={props.addToCart} verified={props.auth.verified} itemNum={i + 1} key={i} sku={products[i].sku} image={images[i]} name={products[i].name} price={products[i].price} quantity={products[i].quantity} />)
     }
   }
 

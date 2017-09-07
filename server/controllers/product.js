@@ -11,8 +11,7 @@ const productController = {
           price: req.price,
           quantity: req.quantity,
         });
-      }
-      return res.status(200).send(false);
+      } else return res.status(200).send(false);
     });
   },
 

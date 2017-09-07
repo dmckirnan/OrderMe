@@ -17,7 +17,7 @@ const userController = {
           username: req.body.username,
           password: req.body.password,
         }, res.status(200).send(true));
-      } else return res.status(200).send(false);
+      } else return res.status(200).send('Create Not Successful');
     });
   },
 };

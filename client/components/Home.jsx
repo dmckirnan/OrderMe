@@ -9,13 +9,13 @@ const Home = (props) => {
     return (
       <div id="homeContainer">
         <header id="homeHeader">
-          <button id="signedIn">Signed In</button>
+          <button id="logoutButton" onClick={props.handleLogout}>Log Out</button>
           <p id="welcomeTag">Welcome Back {props.auth.username}</p>
           <h1 id="title">OrderMe</h1>
         </header>
         <div id="ad">OrderMe Prime is Saving You 10%!</div>
         <div id="contentContainer">
-          <ProductList products={props.products} addToCart={props.addToCart} />
+          <ProductList products={props.products} addToCart={props.addToCart} auth={props.auth} />
           <Cart submitOrder={props.submitOrder} cart={props.cart} />
         </div>
         <footer />
@@ -25,13 +25,13 @@ const Home = (props) => {
   return (
     <div id="homeContainer">
       <header id="homeHeader">
-        <button id="homeLogin">Log In</button>
-        <button id="homeCreate">Sign Up</button>
+        <button id="homeLogin" onClick={props.toggleView} >Log In</button>
+        <button id="homeCreate" onClick={props.toggleView} >Sign Up</button>
         <h1 id="title">OrderMe</h1>
       </header>
       <div id="ad">Sign-Up / Log-In for 10% Off All Items</div>
       <div id="contentContainer">
-        <ProductList products={props.products} addToCart={props.addToCart} />
+        <ProductList products={props.products} addToCart={props.addToCart} auth={props.auth} />
         <Cart submitOrder={props.submitOrder} cart={props.cart} />
       </div>
       <footer />
