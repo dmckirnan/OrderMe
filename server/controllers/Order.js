@@ -5,6 +5,8 @@ const orderController = {
     const created = Date.now();
     Order.create({
       created,
+      total: req.body.total,
+      items: req.body.items,
       name: req.body.name,
       phone: req.body.phone,
     }, (err) => {
@@ -13,8 +15,13 @@ const orderController = {
   },
 
   update: (req, res) => {
-    Order.find({ created: req.body.created }, { $set: { total: req.body.total } }, { $set: { items: req.body.items } }, (err) => {
+    Order.findOne({ created: req.body.created }, (err, order) => {
       if (err) console.log(err);
+      order.name = req.body.name;
+      order.phone = req.body.phone;
+      order.save((err) => {
+        if (err) console.log(err);
+      });
       res.status(200).send(true);
     });
   },

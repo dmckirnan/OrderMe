@@ -26,6 +26,7 @@ class App extends Component {
     this.fetchProducts = this.fetchProducts.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
+    this.removeOrder = this.removeOrder.bind(this);
   }
 
   componentDidMount() {
@@ -106,19 +107,57 @@ class App extends Component {
     e.target.password.value = '';
   }
 
-  addToCart() {
+  addToCart(item, val) {
+    const obj = Object.assign({}, this.state);
+    let cart = obj.cart;
+
+    cart.items.push(item);
+    cart.total += val;
+
+    this.setState({ cart });
   }
 
   submitOrder() {
+    const obj = Object.assign({}, this.state);
+    let view = obj.view;
+
+    axios.post('/createOrder', {
+      total: this.state.cart.total,
+      items: this.state.cart.items,
+      name: 'placeholder',
+      phone: 1234,
+    }).then((response) => {
+      if (response.data === true) {
+        view = 'checkout';
+        this.setState({ view });
+      } else console.log('Error with Order Submittal');
+    });
   }
 
-  addOrder() {
-  }
+  orderInfo(e) {
+    e.preventDefault();
 
-  updateOrder() {
+    const obj = Object.assign({}, this.state);
+    let view = obj.view;
+
+    axios.put('/updateOrder', {
+      name: e.target.name.value,
+      phone: e.target.phone.value,
+    }).then((response) => {
+      view = 'home';
+      this.setState({ view });
+    })
+    e.target.name.value = '';
+    e.target.phone.value = '';
   }
 
   removeOrder() {
+    const obj = Object.assign({}, this.state);
+    let cart = obj.cart;
+    cart.items = [];
+    cart.total = 0;
+
+    this.setState({ cart });
   }
 
   render() {
@@ -143,7 +182,7 @@ class App extends Component {
     }
     return (
       <div>
-        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} submitOrder={this.submitOrder} cart={this.state.cart} />
+        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} />
       </div>
     );
   }

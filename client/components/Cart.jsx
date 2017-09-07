@@ -18,6 +18,7 @@ const Cart = (props) => {
         {cartArr}
       </tbody>
       <p>{props.cart.total}</p>
+      <button id="deleteButton" onClick={props.deleteOrder}>Delete Order</button>
       <button id='orderSubmit' onClick={props.submitOrder}>Order</button>
     </table>
   );

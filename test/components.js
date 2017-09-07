@@ -5,7 +5,6 @@ import App from './../client/components/App.jsx';
 import Login from './../client/components/Login.jsx';
 import Create from './../client/components/Create.jsx';
 import Cart from './../client/components/Cart.jsx';
-import Menu from './../client/components/Menu.jsx';
 
 describe('<App />', () => {
   it('renders appropriate default state values', () => {
