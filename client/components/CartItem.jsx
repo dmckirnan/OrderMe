@@ -1,9 +1,9 @@
 import React from 'react';
-import conversions from './../../utils/conversions.js';
+import { getDiscount, applyDiscount } from './../../utils/conversions.js';
 
 
 const CartItem = (props) => {
-  let price = props.verified ? conversions.applyDiscount(props.price) : props.price;
+  let price = props.verified ? applyDiscount(props.price) : props.price;
 
   if (props.verified === true) {
     return (

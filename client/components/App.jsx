@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Styles from './../styles/App.scss';
-import conversions from './../../utils/conversions.js';
+import { applyDiscount } from './../../utils/conversions.js';
 
 import Login from './Login.jsx';
 import Create from './Create.jsx';
@@ -67,7 +67,7 @@ class App extends Component {
       if (response.data === true) {
         auth.redirect = false;
         auth.verified = true;
-        cart.total = cart.total !== 0 ? Number(conversions.applyDiscount(cart.total)) : cart.total;
+        cart.total = cart.total !== 0 ? Number(applyDiscount(cart.total)) : cart.total;
         view = 'home';
         auth.username = temp;
         this.setState({ auth, view, cart });
@@ -114,7 +114,7 @@ class App extends Component {
       if (response.data === true) {
         auth.redirect = false;
         auth.verified = true;
-        cart.total = cart.total !== 0 ? Number(conversions.applyDiscount(cart.total)) : cart.total;
+        cart.total = cart.total !== 0 ? Number(applyDiscount(cart.total)) : cart.total;
         view = 'home';
         auth.username = temp;
         this.setState({ auth, view, cart });
@@ -209,7 +209,9 @@ class App extends Component {
     }
     return (
       <div>
-        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} handleLogout={this.handleLogout} />
+        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} 
+        removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} 
+        handleLogout={this.handleLogout} />
       </div>
     );
   }

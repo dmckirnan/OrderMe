@@ -1,9 +1,10 @@
 import React from 'react';
 import Styles from '../styles/ListItem.scss';
+import { applyDiscount } from './../../utils/conversions.js';
 
 const ListItem = (props) => {
   if (props.verified === true) {
-    let price = Math.round(props.price - (props.price * 10) / 100).toFixed(2);
+    let price = Number(applyDiscount(props.price));
     return (
     <li className="listItem">
       <p>{props.name}</p>
