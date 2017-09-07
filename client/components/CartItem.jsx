@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const CartItem = props => {
+const CartItem = (props) => {
   return (
     <tr className='row'>
       <td className='col1' />

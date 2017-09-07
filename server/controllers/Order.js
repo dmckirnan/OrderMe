@@ -1,26 +1,26 @@
 const Order = require('./../models/order.js');
 
 const orderController = {
-  create: (req, res) => {
-    let created = Date.now();
+  create: (req) => {
+    const created = Date.now();
     Order.create({
       created,
       name: req.body.name,
       phone: req.body.phone,
-    }, (err, result) => {
+    }, (err) => {
       if (err) console.log(err);
     });
   },
 
   update: (req, res) => {
-    Order.find({ created: req.body.created }, { $set: { total: req.body.total } }, { $set: { items: req.body.items } }, (err, result) => {
+    Order.find({ created: req.body.created }, { $set: { total: req.body.total } }, { $set: { items: req.body.items } }, (err) => {
       if (err) console.log(err);
       res.status(200).send(true);
     });
   },
 
   get: (req, res) => {
-    let query = Product.find({ created: req.body.created });
+    const query = Order.find({ created: req.body.created });
     query.exec((err, product) => {
       if (err) res.send(err);
       return res.send(product);
@@ -28,11 +28,11 @@ const orderController = {
   },
 
   delete: (req, res) => {
-    Order.removeOne({ created: req.body.created }, req.body, (err, result) => {
+    Order.removeOne({ created: req.body.created }, req.body, (err) => {
       if (err) console.log(err);
       res.status(200).send(true);
     });
-  }
-}
+  },
+};
 
 module.exports = orderController;

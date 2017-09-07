@@ -9,14 +9,15 @@ const productController = {
           sku: req.sku,
           name: req.name,
           price: req.price,
-          quantity: req.quantity
+          quantity: req.quantity,
         });
-      } else return res.status(200).send(false);
+      }
+      return res.status(200).send(false);
     });
   },
 
   get: (req, res) => {
-    let query = Product.find({}).sort({ sku: 1 });
+    const query = Product.find({}).sort({ sku: 1 });
     query.exec((err, products) => {
       if (err) res.send(err);
       return res.send(products);
@@ -28,7 +29,7 @@ const productController = {
       if (err) console.log(err);
       else res.send('Product DB Dropped');
     });
-  }
-}
+  },
+};
 
 module.exports = productController;

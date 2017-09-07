@@ -7,20 +7,18 @@ const dataManager = {
   post: (req, res, next) => {
     Product.findOne({ sku: 1000 }, (err, result) => {
       if (result) return;
-      else {
-        for (let i = 0; i < inventory.length; i += 1) {
-          let data = {
-            sku: inventory[i].sku,
-            name: inventory[i].name,
-            price: inventory[i].price,
-            quantity: inventory[i].quantity,
-          };
-          productController.create(data);
-        }
+      for (let i = 0; i < inventory.length; i += 1) {
+        const data = {
+          sku: inventory[i].sku,
+          name: inventory[i].name,
+          price: inventory[i].price,
+          quantity: inventory[i].quantity,
+        };
+        productController.create(data);
       }
     });
     next();
-  }
-}
+  },
+};
 
 module.exports = dataManager;

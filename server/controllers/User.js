@@ -5,7 +5,7 @@ const userController = {
     User.findOne({ username: req.body.username }, (err, result) => {
       if (result === null) return res.status(200).send(false);
       else if (result.password !== req.body.password) return res.status(200).send(false);
-      else return res.status(200).send(true);
+      return res.status(200).send(true);
     });
   },
   
@@ -19,7 +19,7 @@ const userController = {
         }, res.status(200).send(true));
       } else return res.status(200).send(false);
     });
-  }
-}
+  },
+};
 
 module.exports = userController;

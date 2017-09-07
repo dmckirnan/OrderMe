@@ -3,13 +3,12 @@ import Styles from '../styles/ProductList.scss';
 import images from './../../data/images.js';
 
 import ListItem from './ListItem.jsx';
-import Cart from './Cart.jsx';
 
-const ProductList = props => {
+const ProductList = (props) => {
   const products = props.products;
   const productsArr = [];
 
-  if (!products || products.length === 0) productsArr.push(<ListItem key={0}/>)
+  if (!products || products.length === 0) productsArr.push(<ListItem key={0} />);
   else {
     for (let i = 0; i < products.length; i += 1) {
       productsArr.push(<ListItem addToCart={props.addToCart} itemNum={i + 1} key={i} sku={products[i].sku} image={images[i]} name={products[i].name} price={products[i].price} quantity={products[i].quantity} />)
@@ -17,7 +16,7 @@ const ProductList = props => {
   }
 
   return (
-    <ul id='productList'>
+    <ul id="productList">
       {productsArr}
     </ul>
   );

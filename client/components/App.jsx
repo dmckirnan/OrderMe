@@ -5,8 +5,6 @@ import Styles from './../styles/App.scss';
 import Login from './Login.jsx';
 import Create from './Create.jsx';
 import Home from './Home.jsx';
-import ProductList from './ProductList.jsx';
-import Cart from './Cart.jsx';
 import Checkout from './Checkout.jsx';
 
 class App extends Component {
@@ -22,12 +20,10 @@ class App extends Component {
       auth: false,
       redirect: false,
     };
-    
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
     this.toggleView = this.toggleView.bind(this);
     this.fetchProducts = this.fetchProducts.bind(this);
-    
     this.addToCart = this.addToCart.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
   }
@@ -42,7 +38,7 @@ class App extends Component {
     let products = obj.products;
 
     axios.get('/getProducts')
-      .then(data => {
+      .then((data) => {
         products = data.data;
         this.setState({ products });
       });
@@ -79,7 +75,7 @@ class App extends Component {
     const obj = Object.assign({}, this.state);
     let view = obj.view;
 
-    if (e.target.id == 'createLink') view = 'create';
+    if (e.target.id === 'createLink') view = 'create';
     this.setState({ view });
   }
 
@@ -111,33 +107,22 @@ class App extends Component {
   }
 
   addToCart() {
-    // hi
   }
 
   submitOrder() {
-
   }
 
   addOrder() {
-    
   }
 
   updateOrder() {
-
   }
 
   removeOrder() {
-
   }
 
   render() {
-    if (this.state.view === 'home') {
-      return (
-        <div>
-          <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} submitOrder={this.submitOrder} cart={this.state.cart} />
-        </div>
-      )
-    } else if (this.state.view === 'login') {
+    if (this.state.view === 'login') {
       return (
         <div id="loginContainer">
           <Login auth={this.handleAuth} toggleView={this.toggleView} redirect={this.state.redirect} />
@@ -156,6 +141,11 @@ class App extends Component {
         </div>
       );
     }
+    return (
+      <div>
+        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} submitOrder={this.submitOrder} cart={this.state.cart} />
+      </div>
+    );
   }
 }
 
