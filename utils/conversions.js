@@ -21,7 +21,7 @@ const processTotal = num => {
 const convertNum = num => {
   let number = Math.round(num).toFixed(2);
   return number;
-}
+};
 
 module.exports = {
   applyDiscount,
