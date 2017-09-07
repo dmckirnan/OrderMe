@@ -3,13 +3,14 @@ import Styles from '../styles/ListItem.scss';
 
 const ListItem = (props) => {
   if (props.verified === true) {
+    let price = Math.round(props.price - (props.price * 10) / 100).toFixed(2);
     return (
     <li className="listItem">
       <p>{props.name}</p>
       <img src={props.image} />
       <p className="presalePrice">{'$' + props.price}</p>
-      <p className="salePrice">{'$' + Math.floor(props.price - (props.price * 10) / 100)}</p>
-      <button className="itemButton" onClick={props.addToCart}>Add to Order</button>
+      <p className="salePrice">{'$' + price}</p>
+      <button name={props.name} value={price} className="itemButton" onClick={props.addToCart}>Add to Order</button>
     </li>
     );
   }
@@ -18,7 +19,7 @@ const ListItem = (props) => {
       <p>{props.name}</p>
       <img src={props.image} />
       <p>{props.price ? '$' + props.price : ''}</p>
-      <button className="itemButton" onClick={props.addToCart}>Add to Order</button>
+      <button name={props.name} value={props.price} className="itemButton" onClick={props.addToCart}>Add to Order</button>
     </li>
   );
 };

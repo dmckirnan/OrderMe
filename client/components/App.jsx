@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Styles from './../styles/App.scss';
+import conversions from './../../utils/conversions.js';
 
 import Login from './Login.jsx';
 import Create from './Create.jsx';
@@ -54,6 +55,7 @@ class App extends Component {
 
     const obj = Object.assign({}, this.state);
     const auth = Object.assign({}, this.state.auth);
+    const cart = Object.assign({}, this.state.cart);
 
     let view = obj.view;
     let temp = e.target.username.value;
@@ -65,9 +67,10 @@ class App extends Component {
       if (response.data === true) {
         auth.redirect = false;
         auth.verified = true;
+        cart.total = cart.total !== 0 ? Number(conversions.applyDiscount(cart.total)) : cart.total;
         view = 'home';
         auth.username = temp;
-        this.setState({ auth, view });
+        this.setState({ auth, view, cart });
       } else {
         view = 'login';
         auth.redirect = true;
@@ -99,6 +102,7 @@ class App extends Component {
 
     const obj = Object.assign({}, this.state);
     const auth = Object.assign({}, this.state.auth);
+    const cart = Object.assign({}, this.state.cart);
 
     let view = obj.view;
     let temp = e.target.username.value;
@@ -110,9 +114,10 @@ class App extends Component {
       if (response.data === true) {
         auth.redirect = false;
         auth.verified = true;
+        cart.total = cart.total !== 0 ? Number(conversions.applyDiscount(cart.total)) : cart.total;
         view = 'home';
         auth.username = temp;
-        this.setState({ auth, view });
+        this.setState({ auth, view, cart });
       } else if (response.data === false) {
         view = 'login';
         auth.redirect = true;
@@ -127,11 +132,14 @@ class App extends Component {
     e.target.password.value = '';
   }
 
-  addToCart(item, val) {
+  addToCart(e) {
     const cart = Object.assign({}, this.state.cart);
-
+    const item = {
+      name: e.target.name,
+      price: e.target.value,
+    }
     cart.items.push(item);
-    cart.total += val;
+    cart.total += Number(e.target.value);
 
     this.setState({ cart });
   }

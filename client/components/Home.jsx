@@ -16,7 +16,7 @@ const Home = (props) => {
         <div id="ad">OrderMe Prime is Saving You 10%!</div>
         <div id="contentContainer">
           <ProductList products={props.products} addToCart={props.addToCart} auth={props.auth} />
-          <Cart submitOrder={props.submitOrder} cart={props.cart} />
+          <Cart submitOrder={props.submitOrder} cart={props.cart} auth={props.auth} />
         </div>
         <footer />
       </div>
@@ -32,7 +32,7 @@ const Home = (props) => {
       <div id="ad">Sign-Up / Log-In for 10% Off All Items</div>
       <div id="contentContainer">
         <ProductList products={props.products} addToCart={props.addToCart} auth={props.auth} />
-        <Cart submitOrder={props.submitOrder} cart={props.cart} />
+        <Cart submitOrder={props.submitOrder} cart={props.cart} auth={props.auth} />
       </div>
       <footer />
     </div>
