@@ -5,6 +5,23 @@ import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
 
 const Home = (props) => {
+  if (props.auth.verified === true) {
+    return (
+      <div id="homeContainer">
+        <header id="homeHeader">
+          <button id="signedIn">Signed In</button>
+          <p id="welcomeTag">Welcome Back {props.auth.username}</p>
+          <h1 id="title">OrderMe</h1>
+        </header>
+        <div id="ad">OrderMe Prime is Saving You 10%!</div>
+        <div id="contentContainer">
+          <ProductList products={props.products} addToCart={props.addToCart} />
+          <Cart submitOrder={props.submitOrder} cart={props.cart} />
+        </div>
+        <footer />
+      </div>
+    );
+  }
   return (
     <div id="homeContainer">
       <header id="homeHeader">

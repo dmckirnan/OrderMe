@@ -15,10 +15,13 @@ class App extends Component {
         items: [],
         total: 0,
       },
+      auth: {
+        verified: false,
+        redirect: false,
+        username: '',
+      },
       products: [],
-      view: 'home',
-      auth: false,
-      redirect: false,
+      view: 'login',
     };
     this.handleAuth = this.handleAuth.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
@@ -49,23 +52,25 @@ class App extends Component {
     e.preventDefault();
 
     const obj = Object.assign({}, this.state);
-    let auth = obj.auth;
+    const auth = Object.assign({}, this.state.auth);
+
     let view = obj.view;
-    let redirect = obj.redirect;
+    let temp = e.target.username.value;
 
     axios.post('/verifyUser', {
       username: e.target.username.value,
       password: e.target.password.value,
     }).then((response) => {
       if (response.data === true) {
-        redirect = false;
-        auth = true;
+        auth.redirect = false;
+        auth.verified = true;
         view = 'home';
-        this.setState({ auth, view, redirect });
+        auth.username = temp;
+        this.setState({ auth, view });
       } else {
         view = 'login';
-        redirect = true;
-        this.setState({ view, redirect });
+        auth.redirect = true;
+        this.setState({ view, auth });
       }
     });
     e.target.username.value = '';
@@ -84,23 +89,25 @@ class App extends Component {
     e.preventDefault();
 
     const obj = Object.assign({}, this.state);
-    let auth = obj.auth;
+    const auth = Object.assign({}, this.state.auth);
+
     let view = obj.view;
-    let redirect = obj.redirect;
+    let temp = e.target.username.value;
 
     axios.post('/createUser', {
       username: e.target.username.value,
       password: e.target.password.value,
     }).then((response) => {
       if (response.data === true) {
-        redirect = false;
-        auth = true;
+        auth.redirect = false;
+        auth.verified = true;
         view = 'home';
-        this.setState({ auth, view, redirect });
+        auth.username = temp;
+        this.setState({ auth, view });
       } else {
         view = 'create';
-        redirect = true;
-        this.setState({ view, redirect });
+        auth.redirect = true;
+        this.setState({ view, auth });
       }
     });
     e.target.username.value = '';
@@ -108,8 +115,7 @@ class App extends Component {
   }
 
   addToCart(item, val) {
-    const obj = Object.assign({}, this.state);
-    let cart = obj.cart;
+    const cart = Object.assign({}, this.state.cart);
 
     cart.items.push(item);
     cart.total += val;
@@ -152,8 +158,8 @@ class App extends Component {
   }
 
   removeOrder() {
-    const obj = Object.assign({}, this.state);
-    let cart = obj.cart;
+    const cart = Object.assign({}, this.state);
+    
     cart.items = [];
     cart.total = 0;
 
@@ -164,13 +170,13 @@ class App extends Component {
     if (this.state.view === 'login') {
       return (
         <div id="loginContainer">
-          <Login auth={this.handleAuth} toggleView={this.toggleView} redirect={this.state.redirect} />
+          <Login handleAuth={this.handleAuth} toggleView={this.toggleView} redirect={this.state.auth.redirect} />
         </div>
       );
     } else if (this.state.view === 'create') {
       return (
         <div id="createContainer">
-          <Create create={this.handleCreate} redirect={this.state.redirect} />
+          <Create create={this.handleCreate} redirect={this.state.auth.redirect} />
         </div>
       );
     } else if (this.state.view === 'checkout') {

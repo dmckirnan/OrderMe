@@ -5,7 +5,7 @@ const Login = (props) => {
   const text = props.redirect === true ? 'Login Attempt Unsuccessful' : '';
 
   return (
-    <form id="loginForm" onSubmit={props.auth}>
+    <form id="loginForm" onSubmit={props.handleAuth}>
       <h2>Log In to OrderMe</h2>
       <h3>{text}</h3>
       <input name="username" type="text" placeholder="Username" />
