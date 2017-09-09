@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Styles from './../styles/App.scss';
 import { applyDiscount } from './../../utils/conversions.js';
-
 import Login from './Login.jsx';
 import Create from './Create.jsx';
 import Home from './Home.jsx';
@@ -12,7 +11,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      productsStore: [],
       products: [],
+      search: '',
       view: 'home',
       cart: {
         items: [],
@@ -28,6 +29,7 @@ class App extends Component {
     this.handleCreate = this.handleCreate.bind(this);
     this.toggleView = this.toggleView.bind(this);
     this.fetchProducts = this.fetchProducts.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
@@ -42,11 +44,13 @@ class App extends Component {
   fetchProducts() {
     const obj = Object.assign({}, this.state);
     let products = obj.products;
+    let productsStore = obj.productsStore;
 
     axios.get('/getProducts')
       .then((data) => {
         products = data.data;
-        this.setState({ products });
+        productsStore = data.data;
+        this.setState({ products, productsStore });
       });
   }
 
@@ -82,10 +86,13 @@ class App extends Component {
   }
 
   handleLogout() {
+    const obj = Object.assign({}, this.state);
     const auth = Object.assign({}, this.state.auth);
+    let view = obj.view;
+    view = 'home';
     auth.verified = false;
     auth.username = '';
-    this.setState({ auth });
+    this.setState({ auth, view });
   }
 
   toggleView(e) {
@@ -130,6 +137,21 @@ class App extends Component {
     });
     e.target.username.value = '';
     e.target.password.value = '';
+  }
+
+  handleSearch(e) {
+    const obj = Object.assign({}, this.state);
+    let products = obj.productsStore;
+    let search = obj.search;
+    search = e.target.search.value;
+
+    products = products.filter(x => {
+      let lowerCase = x.name.toLowerCase();
+      return lowerCase.indexOf(e.target.search.value) !== -1;
+    });
+    this.setState({ products, search });
+
+    e.preventDefault();
   }
 
   addToCart(e) {
@@ -211,7 +233,7 @@ class App extends Component {
       <div>
         <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} 
         removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} 
-        handleLogout={this.handleLogout} />
+        handleLogout={this.handleLogout} handleSearch={this.handleSearch} />
       </div>
     );
   }

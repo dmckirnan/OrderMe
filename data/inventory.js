@@ -1,7 +1,7 @@
 const Inventory = [
   {
     sku: 1000,
-    name: 'Black Cups 3-pack',
+    name: 'Black Cups 3-Pack',
     price: 10.99,
     quantity: 17,
   },
