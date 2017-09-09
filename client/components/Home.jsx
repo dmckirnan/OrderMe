@@ -18,7 +18,7 @@ const Home = (props) => {
           <button id="searchButton" type="submit">Submit</button>
         </form>
         <div id="contentContainer">
-          <ProductList products={props.products} addToCart={props.addToCart} auth={props.auth} />
+          <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} />
           <Cart submitOrder={props.submitOrder} cart={props.cart} auth={props.auth} />
         </div>
         <footer />
@@ -38,7 +38,7 @@ const Home = (props) => {
         <button id="searchButton" type="submit">Submit</button>
       </form>
       <div id="contentContainer">
-        <ProductList products={props.products} addToCart={props.addToCart} auth={props.auth} />
+        <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} />
         <Cart submitOrder={props.submitOrder} cart={props.cart} auth={props.auth} />
       </div>
       <footer />

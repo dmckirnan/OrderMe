@@ -3,6 +3,7 @@ import Styles from '../styles/ProductList.scss';
 import ItemStyles from '../styles/ListItem.scss';
 import images from './../../data/images.js';
 import ListItem from './ListItem.jsx';
+import Dropdown from './Dropdown.jsx';
 
 const ProductList = (props) => {
   const products = props.products;
@@ -17,6 +18,7 @@ const ProductList = (props) => {
 
   return (
     <ul id="productList">
+      <Dropdown sortProducts={props.sortProducts} />
       {productsArr}
     </ul>
   );

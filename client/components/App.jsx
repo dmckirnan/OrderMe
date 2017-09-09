@@ -15,6 +15,7 @@ class App extends Component {
       products: [],
       search: '',
       view: 'home',
+      dropdownActive: 'false',
       cart: {
         items: [],
         total: 0,
@@ -30,6 +31,7 @@ class App extends Component {
     this.toggleView = this.toggleView.bind(this);
     this.fetchProducts = this.fetchProducts.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.sortProducts = this.sortProducts.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
@@ -154,6 +156,17 @@ class App extends Component {
     e.preventDefault();
   }
 
+  sortProducts(e) {
+    const obj = Object.assign({}, this.state);
+    let products = obj.products;
+    
+    if (e.target.id === 'priceLH') products.sort((a, b) => a.price - b.price);
+    if (e.target.id === 'priceHL') products.sort((a, b) => b.price - a.price);
+    if (e.target.id === 'quantityLH') products.sort((a, b) => a.quantity - b.quantity);
+    if (e.target.id === 'quantityHL') products.sort((a, b) => b.quantity - a.quantity);
+    this.setState({ products });
+  }
+
   addToCart(e) {
     const cart = Object.assign({}, this.state.cart);
     const item = {
@@ -233,7 +246,7 @@ class App extends Component {
       <div>
         <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} 
         removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} 
-        handleLogout={this.handleLogout} handleSearch={this.handleSearch} />
+        handleLogout={this.handleLogout} handleSearch={this.handleSearch} sortProducts={this.sortProducts} dropdown={this.state.dropdownActive} />
       </div>
     );
   }
