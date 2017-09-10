@@ -10,6 +10,19 @@ const Images = {
   'Seattle Seahawks New Era Cap': 'https://static.vibe.com/files/article_images/seattle-seahawks-super-bowl-xlviii-on-field-side-patch-59fifty-fitted-cap-new-era-nfl_2.jpg',
   'Black Yoga Mat': 'https://images-na.ssl-images-amazon.com/images/I/61j2YmYHx9L._SY355_.jpg',
   'Overwatch PC Origins Edition': 'https://images-na.ssl-images-amazon.com/images/I/917xadgCebL._SY445_.jpg',
+  'Sauvecito Pomade': 'https://images-na.ssl-images-amazon.com/images/I/51Q0GxpEgZL._SX355_.jpg',
+  'Amazon Echo Dot': 'https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/dex/alexa/Biscuit-hero_image._CB279631540_.png',
+  'Twin Size Mattress Memory Foam': 'http://supercomfysleep.com/wp-content/uploads/2016/12/Classic-Brands-Cool-Gel-8-Inch-Gel-Memory-Foam-Mattress-Twin-Size.jpg',
+  'iPhone 7 Charging Cord': 'http://cdn.redmondpie.com/wp-content/uploads/2014/01/lightning-cable.png',
+  'Adidas Yeezy Boost Black & White': 'https://s3.amazonaws.com/hiphopdx-production/2015/06/adidas-Yeezy-350-Boost-640.png',
+  'Fidget Spinner Red': 'http://sc01.alicdn.com/kf/HTB1pIbePFXXXXbZaXXX760XFXXXt/New-hot-selling-hand-spinner-toys-fidget.png',
+  'King Arthur DVD': 'https://images-na.ssl-images-amazon.com/images/I/A14NhDPmMsL._SX342_.jpg',
+  'Optimum Nutrition Protein Powder 5 Gallon': 'http://monstersupplements.com/media/catalog/product/cache/1/image/1000x/9df78eab33525d08d6e5fb8d27136e95/g/s/gsw.png',
+  'Razer Naga Hex Red': 'http://assets.razerzone.com/minisite/hex/images/gallery/naga-hex-05r.png',
+  'Volcom Black Dress Shirt': 'http://www.slopestyleshop.com/images/product/v/volcom-larkin-ls-shirt.png',
+  'Spalding Mens Basketball': 'http://assets.academy.com/mgen/82/10298482.jpg',
+  'Westinghouse 1 TB Hard Drive': 'https://images-na.ssl-images-amazon.com/images/I/41IAlWGaCGL._SL500_AC_SS350_.jpg',
+  'Madden NFL 18 XBOX One': 'http://www.gamestop.com/common/images/lbox/142245b.jpg',
 };
 
 module.exports = Images;
