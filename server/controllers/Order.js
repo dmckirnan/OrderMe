@@ -1,16 +1,17 @@
 const Order = require('./../models/order.js');
 
 const orderController = {
-  create: (req) => {
-    const created = Date.now();
+  create: (req, res) => {
+    let created = Date.now();
     Order.create({
-      created,
+      created: created,
       total: req.body.total,
       items: req.body.items,
       name: req.body.name,
       phone: req.body.phone,
     }, (err) => {
       if (err) console.log(err);
+      else res.status(200).send(true);
     });
   },
 
