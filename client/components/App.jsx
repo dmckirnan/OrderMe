@@ -15,7 +15,6 @@ class App extends Component {
       products: [],
       search: '',
       view: 'home',
-      dropdownActive: 'false',
       cart: {
         items: [],
         total: 0,
@@ -248,7 +247,7 @@ class App extends Component {
       <div>
         <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} 
         removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} 
-        handleLogout={this.handleLogout} handleSearch={this.handleSearch} sortProducts={this.sortProducts} dropdown={this.state.dropdownActive} />
+        handleLogout={this.handleLogout} handleSearch={this.handleSearch} sortProducts={this.sortProducts} />
       </div>
     );
   }
