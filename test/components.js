@@ -47,11 +47,12 @@ describe('<App />', () => {
 
 describe('<App /> methods', () => {
   it('handleAuth method', () => {
+    const handleAuth = spy();
     spy(App.prototype, 'handleAuth');
-    const wrapper = mount(<App />);
+    const wrapper = shallow(<App />);
     wrapper.setState({ view: 'login' });
-    wrapper.find('#loginButton').simulate('click');
-    expect(App.prototype.handleAuth.calledOnce).to.equal(true);
+    wrapper.find('button').simulate('click');
+    expect(App.prototype.handleAuth).toHaveBeenCalled();
   });
   it('handleLogout method', () => {
     it('Changes view, resets verified, and resets username properties in state when clicked', () => {
@@ -141,9 +142,9 @@ describe('<Home />', () => {
     expect(wrapper.find('div')).to.have.length(3);
   });
   it('renders a <p> when auth.verified === true', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<Home />);
     let auth = { verified: true, redirect: false, username: 'dave'};
-    wrapper.setState({ auth });
+    wrapper.setProps({ auth });
     expect(wrapper.find('#logoutButton')).to.have.length(1);
   });
   it('does not render #homeLogin or #homeCreate buttons when auth.verified === true', () => {
