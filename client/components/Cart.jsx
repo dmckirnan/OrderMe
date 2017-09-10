@@ -20,9 +20,9 @@ const Cart = (props) => {
       <tbody>
         {cartArr}
       </tbody>
-      <p>SubTotal: <span>{convertNum(props.cart.total)}</span></p>
-      <p>Tax @ %8.00: <span>{findTax(props.cart.total)}</span></p>
-      <p>Grand Total: <span>{processTotal(props.cart.total)}</span></p>
+      <p>SubTotal: <span>{props.cart !== undefined ? convertNum(props.cart.total) : ''}</span></p>
+      <p>Tax @ %8.00: <span>{props.cart !== undefined ? findTax(props.cart.total) : ''}</span></p>
+      <p>Grand Total: <span>{props.cart !== undefined ? processTotal(props.cart.total): ''}</span></p>
       <button id="deleteButton" onClick={props.deleteOrder}>Delete Order</button>
       <button id='orderSubmit' onClick={props.submitOrder}>Order</button>
     </table>

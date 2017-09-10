@@ -49,6 +49,7 @@ describe('<App /> methods', () => {
   it('handleAuth method', () => {
     spy(App.prototype, 'handleAuth');
     const wrapper = mount(<App />);
+    wrapper.setState({ view: 'login' });
     wrapper.find('#loginButton').simulate('click');
     expect(App.prototype.handleAuth.calledOnce).to.equal(true);
   });
@@ -75,6 +76,7 @@ describe('<App /> methods', () => {
   it('handleCreate method', () => {
     spy(App.prototype, 'handleCreate');
     const wrapper = mount(<App />);
+    wrapper.setState({ view: 'create' });
     wrapper.find('#createButton').simulate('click');
     expect(App.prototype.handleCreate.calledOnce).to.equal(true);
   });
@@ -136,20 +138,20 @@ describe('<Home />', () => {
     expect(wrapper.find('button')).to.have.length(3);
     expect(wrapper.find('form')).to.have.length(1);
     expect(wrapper.find('input')).to.have.length(1);
-    expect(wrapper.find('div')).to.have.length(2);
+    expect(wrapper.find('div')).to.have.length(3);
   });
   it('renders a <p> when auth.verified === true', () => {
     const wrapper = shallow(<App />);
-    const homeWrapper = shallow(<Home />);
-    wrapper.setState({ auth: { verified: true, redirect: false, username: 'dave'}});
-    expect(homeWrapper.find('#welcomeTag')).to.have.length(1);
+    let auth = { verified: true, redirect: false, username: 'dave'};
+    wrapper.setState({ auth });
+    expect(wrapper.find('#logoutButton')).to.have.length(1);
   });
   it('does not render #homeLogin or #homeCreate buttons when auth.verified === true', () => {
     const wrapper = shallow(<App />);
-    const homeWrapper = shallow(<Home />);
-    wrapper.setState({ auth: { verified: true, redirect: false, username: 'dave'}});
-    expect(homeWrapper.find('#homeLogin')).to.have.length(0);
-    expect(homeWrapper.find('#homeCreate')).to.have.length(0);
+    let auth = { verified: true, redirect: false, username: 'dave'};
+    wrapper.setState({ auth });
+    expect(wrapper.find('#homeLogin')).to.have.length(0);
+    expect(wrapper.find('#homeCreate')).to.have.length(0);
   });
   it('should render a <ProductList /> & <Cart /> component', () => {
     const wrapper = shallow(<Home />);
@@ -168,9 +170,10 @@ describe('<ProductList />', () => {
     expect(wrapper.find(ListItem)).to.have.length(1);
   });
   it('should render as many <ListItem /> components as this.state.products.length', () => {
-    const wrapper = shallow(<App />);
     const productListWrapper = shallow(<ProductList />);
-    wrapper.setState({ products: [ {name: 'dog', price: 1}, {name: 'cat', price: 1}, {name: 'mouse', price: 1} ]});
+    let products = [{name: 'dog', price: 1}, {name: 'cat', price: 1}, {name: 'mouse', price: 1}];
+    let auth = { verified: false, redirect: false, username: ''};
+    productListWrapper.setProps({ products, auth });
     expect(productListWrapper.find(ListItem)).to.have.length(3);
   });
   it('should render a <Dropdown /> component', () => {
@@ -196,11 +199,11 @@ describe('<Cart />', () => {
     expect(wrapper.find(CartItem)).to.have.length(1);
   });
   it('should render as many <CartItem /> components as this.state.cart.items.length', () => {
-    const wrapper = shallow(<App />);
     const cartWrapper = shallow(<Cart />);
     let cart = { items: [{name: 'toys', price: 1}, {name: 'dogs', price: 2}], total: 0 };
-    wrapper.setState({ cart });
-    expect(cartItemWrapper.find(CartItem)).to.have.length(2);
+    let auth = { verified: false, redirect: false, auth: ''};
+    cartWrapper.setProps({ cart, auth });
+    expect(cartWrapper.find(CartItem)).to.have.length(2);
   });
 });
 
@@ -210,6 +213,7 @@ describe('<CartItem />', () => {
     expect(wrapper.type()).to.eql('tr');
   });
   it('should render two <td> elements', () => {
+    const wrapper = shallow(<CartItem />);
     expect(wrapper.find('td')).to.have.length(2);
   });
 });

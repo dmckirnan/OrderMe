@@ -4,7 +4,8 @@ import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
 
 const Home = (props) => {
-  if (props.auth.verified === true) {
+  let verified = props.auth === undefined ? false : props.auth;
+  if (verified === true) {
     return (
       <div id="homeContainer">
         <header id="homeHeader">
