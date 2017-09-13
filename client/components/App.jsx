@@ -239,7 +239,7 @@ class App extends Component {
     } else if (this.state.view === 'checkout') {
       return (
         <div id="checkoutContainer">
-          <Checkout cart={this.state.cart} />
+          <Checkout cart={this.state.cart} auth={this.state.username} update={this.state.orderInfo} />
         </div>
       );
     }

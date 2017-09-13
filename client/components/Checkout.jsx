@@ -1,9 +1,10 @@
 import React from 'react';
+import Cart from './Cart.jsx';
 
 const Checkout = (props) => {
   return (
     <div>
-      This is the Checkout Page.... Hi
+      <Cart cart={props.cart} auth={props.auth} />
     </div>
   );
 };

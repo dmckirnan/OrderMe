@@ -6,8 +6,8 @@ const Dropdown = (props) => {
     <div id="dropdown">
       <span>Sort By: &#9660;</span>
       <div id="dropdown-content">
-        <a href="#" id="priceLH" onClick={props.sortProducts}>Price Lowest-Highest</a>
-        <a href="#" id="priceHL" onClick={props.sortProducts}>Price Highest-Lowest</a>
+        <a href="#" id="priceLH" onClick={props.sortProducts}>Lowest Price</a>
+        <a href="#" id="priceHL" onClick={props.sortProducts}>Highest Price</a>
       </div>
     </div>
   );
