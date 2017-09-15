@@ -7,6 +7,8 @@ import Create from './Create.jsx';
 import Home from './Home.jsx';
 import Checkout from './Checkout.jsx';
 
+import Modal from './Modal.jsx';
+
 class App extends Component {
   constructor(props) {
     super(props);
