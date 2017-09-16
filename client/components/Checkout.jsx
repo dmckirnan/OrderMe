@@ -10,4 +10,3 @@ const Checkout = (props) => {
 };
 
 export default Checkout;
-console.log('this is a test');
