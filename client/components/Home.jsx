@@ -2,6 +2,7 @@ import React from 'react';
 import Styles from '../styles/Home.scss';
 import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
+import Modal from './Modal.jsx';
 
 const Home = (props) => {
   let verified = props.auth === undefined ? false : props.auth.verified;
@@ -39,7 +40,7 @@ const Home = (props) => {
         <button id="searchButton" type="submit">Submit</button>
       </form>
       <div id="contentContainer">
-        <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} />
+        <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} toggleModal={props.toggleModal} />
         <Cart submitOrder={props.submitOrder} cart={props.cart} auth={props.auth} />
       </div>
       <footer />

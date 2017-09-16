@@ -17,7 +17,7 @@ const ListItem = (props) => {
   }
   return (
     <li className="listItem">
-      <p>{props.name}</p>
+      <p onClick={props.toggleModal}>{props.name}</p>
       <img src={props.image} />
       <p>{props.price ? '$' + props.price : ''}</p>
       <button name={props.name} value={props.price} className="itemButton" onClick={props.addToCart}>Add to Order</button>

@@ -37,6 +37,7 @@ class App extends Component {
     this.submitOrder = this.submitOrder.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -225,6 +226,17 @@ class App extends Component {
     this.setState({ cart });
   }
 
+  toggleModal() {
+    console.log('click working');
+    const obj = Object.assign({}, this.state);
+    let view = obj.view;
+
+    if (view !== 'modal') view = 'modal';
+    else view = 'home';
+
+    this.setState({ view });
+  }
+
   render() {
     if (this.state.view === 'login') {
       return (
@@ -244,12 +256,18 @@ class App extends Component {
           <Checkout cart={this.state.cart} auth={this.state.username} update={this.state.orderInfo} />
         </div>
       );
+    } else if (this.state.view === 'modal') {
+      return (
+        <div id='modalContainer'>
+          <Modal />;
+        </div>
+      );
     }
     return (
       <div>
         <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} 
         removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} 
-        handleLogout={this.handleLogout} handleSearch={this.handleSearch} sortProducts={this.sortProducts} />
+        handleLogout={this.handleLogout} handleSearch={this.handleSearch} sortProducts={this.sortProducts} toggleModal={this.toggleModal} />
       </div>
     );
   }

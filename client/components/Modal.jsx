@@ -1,14 +1,15 @@
 import React from 'react';
+import Styles from './../styles/Modal.scss';
 
 const Modal = props => {
-  if (props.view === 'modal') {
-    <div id="modal">
-      <div id="modal-content">
-        <div id="modal-header"></div>
-        <div id="modal-body"></div>
-      </div>
+  return (
+  <div id="modal">
+    <div id="modal-content">
+      <div id="modal-header"></div>
+      <div id="modal-body"></div>
     </div>
-  } else return null;
+  </div>
+  );
 };
 
 export default Modal;
