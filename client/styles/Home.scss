@@ -1,5 +1,5 @@
 #homeContainer {
-  background: #1C2331;
+  background: #0A122A;
 }
 
 #searchForm {
@@ -7,7 +7,16 @@
 }
 
 #searchForm button {
+  background: #E7DECD;
+  border: 3px solid #E7DECD;
+  border-radius: 5px;
   margin-left: 5px;
+}
+
+#searchForm button:hover {
+  background: #804E49;
+  border: 3px solid #804E49;
+  border-radius: 5px;
 }
 
 #homeHeader {
@@ -18,38 +27,37 @@
 #title {
   font-size: 28px;
   font-weight: bold;
-  color: #3D9970;
+  color: #FBFAF8;
 }
 
 #homeHeader p {
-  color: #fff;
   float: right;
   margin: 2px;
 }
 
 #homeHeader button {
   font-size: 18px;
-  background: #3D9970;
-  border: 3px solid #3D9970;
+  background: #E7DECD;
+  border: 3px solid #E7DECD;
   border-radius: 5px;
   float: right;
   margin: 2px;
 }
 
 #homeHeader button:hover {
-  background: #2ECC40;
-  border: 3px solid #2ECC40;
+  background: #804E49;
+  border: 3px solid #804E49;
   border-radius: 5px;
   cursor: pointer;
 }
 
 #ad {
+  color: #FBFAF8;
   margin: 0 auto;
   width: 100%;
   text-align: center;
   font-size: 44px;
   text-decoration: underline;
-  color: white;
   margin-bottom: 20px;
 }
 
@@ -58,7 +66,7 @@
 }
 
 #contentContainer {
-  background-color: #fff;
+  background-color: #FBFAF8;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   margin: 0 auto;
@@ -75,10 +83,8 @@
 #productList {
   width: 70%;
   padding-bottom: 25px;
-  background: #fff;
+  background: #FBFAF8;
 }
-
-
 
 /*
   ListItem Styles
@@ -88,10 +94,10 @@
 .listItem {
   display: inline-block;
   margin-right: 25px;
-  color: #3D9970;
+  color: #698F3F;
   font-weight: bold;
 
-  border: 1px solid #d3d3d3;
+  border: 1px solid #0A122A;
   border-collapse: collapse;
   padding: 10px;
 }
@@ -114,17 +120,17 @@
 }
 
 .listItem button {
-  background: #3F729B;
+  background: #E7DECD;
   display: block;
-  border: 3px solid #3F729B;
+  border: 3px solid #E7DECD;
   border-radius: 5px;
   margin: 0 auto;
   cursor: pointer;
 }
 
 .listItem button:hover {
-  background: #90a4ae;
-  border: 3px solid #90a4ae;
+  background: #804E49;
+  border: 3px solid #804E49;
   border-radius: 5px;
 }
 
@@ -148,9 +154,9 @@
   font-family: 'Arial';
   width: 20%;
   height: 600px;
-  margin-left: 25px;
-  margin-top: 15px;
-  border: 1px solid #3D9970;
+  margin-left: 10px;
+  margin-top: 4.5%;
+  border: 1px solid #0A122A;
 }
 
 #cartTable span {
@@ -158,14 +164,14 @@
 }
 
 #cartTable button {
-  background: #3F729B;
-  border: 3px solid #3F729B;
+  background: #E7DECD;
+  border: 3px solid #E7DECD;
   border-radius: 5px;
 }
 
 #cartTable button:hover {
-  background: #90a4ae;
-  border: 3px solid #90a4ae;
+  background: #804E49;
+  border: 3px solid#804E49;
   border-radius: 5px;
 }
 
@@ -211,6 +217,7 @@
 }
 
 #dropdown {
+  color: #0A122A;
   margin-top: 15px;
   margin-bottom: 25px;
 }
