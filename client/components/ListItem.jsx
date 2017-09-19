@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from '../styles/ListItem.scss';
+import Styles from '../styles/Home.scss';
 import { applyDiscount } from './../../utils/conversions.js';
 
 const ListItem = (props) => {

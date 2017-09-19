@@ -1,6 +1,5 @@
 import React from 'react';
-import Styles from './../styles/Cart.scss';
-import ItemStyles from './../styles/CartItem.scss';
+import Styles from './../styles/Home.scss';
 import { convertNum, findTax, processTotal } from './../../utils/conversions.js';
 import CartItem from './CartItem.jsx';
 

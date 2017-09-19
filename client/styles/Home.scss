@@ -66,3 +66,155 @@
   display: flex;
   flex-flow: row nowrap;
 }
+
+
+/*
+  ProductList Styles
+*/
+
+#productList {
+  width: 70%;
+  padding-bottom: 25px;
+  background: #fff;
+}
+
+
+
+/*
+  ListItem Styles
+*/
+
+
+.listItem {
+  display: inline-block;
+  margin-right: 25px;
+  color: #3D9970;
+  font-weight: bold;
+
+  border: 1px solid #d3d3d3;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.listItem img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.listItem p {
+  font-family: 'Cursive';
+  text-align: center;
+  max-width: 20ch;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listItem button {
+  background: #3F729B;
+  display: block;
+  border: 3px solid #3F729B;
+  border-radius: 5px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.listItem button:hover {
+  background: #90a4ae;
+  border: 3px solid #90a4ae;
+  border-radius: 5px;
+}
+
+.presalePrice {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.salePrice {
+  color: red;
+}
+
+
+
+/* 
+  Cart Styles
+*/
+
+#cartTable {
+  background-color: #fff;
+  font-family: 'Arial';
+  width: 20%;
+  height: 600px;
+  margin-left: 25px;
+  margin-top: 15px;
+  border: 1px solid #3D9970;
+}
+
+#cartTable span {
+  float: right;
+}
+
+#cartTable button {
+  background: #3F729B;
+  border: 3px solid #3F729B;
+  border-radius: 5px;
+}
+
+#cartTable button:hover {
+  background: #90a4ae;
+  border: 3px solid #90a4ae;
+  border-radius: 5px;
+}
+
+.col2 {
+  display: block;
+}
+
+.discount {
+  color: red;
+}
+
+
+
+/*
+  Dropdown Styles
+*/
+
+
+#dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+#dropdown:hover #dropdown-content{
+  display: block;
+  cursor: pointer;
+}
+
+#dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdown-content a:hover {
+  background-color: dodgerblue;
+}
+
+#dropdown {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+#dropdown span {
+  text-decoration: underline;
+}

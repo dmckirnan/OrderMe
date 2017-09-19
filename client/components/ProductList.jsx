@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Styles from '../styles/ProductList.scss';
-import ItemStyles from '../styles/ListItem.scss';
+import Styles from '../styles/Home.scss';
 import images from './../../data/images.js';
 import ListItem from './ListItem.jsx';
 import Dropdown from './Dropdown.jsx';

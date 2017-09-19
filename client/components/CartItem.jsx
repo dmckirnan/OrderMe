@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './../styles/CartItem.scss';
+import Styles from './../styles/Home.scss';
 import { getDiscount, applyDiscount } from './../../utils/conversions.js';
 
 
