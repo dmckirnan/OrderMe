@@ -2,6 +2,7 @@ import React from 'react';
 import Styles from './../styles/Home.scss';
 import { getDiscount, applyDiscount } from './../../utils/conversions.js';
 
+import FaClose from 'react-icons/lib/fa/close';
 
 const CartItem = (props) => {
 
@@ -10,6 +11,7 @@ const CartItem = (props) => {
       <tr className='row'>
         <td className='col1'>{props.name}</td>
         <td className='col2'>{props.price}<div className="discount">{('-' + getDiscount(props.price)) + ' (10% User Discount)'}</div></td>
+        <td className='col3'><button name={props.name} onClick={props.deleteOrder}><FaClose /></button></td>
       </tr>
     );
   }
@@ -17,6 +19,7 @@ const CartItem = (props) => {
     <tr className='row'>
       <td className='col1'>{props.name}</td>
       <td className='col2'>{props.price}</td>
+      <td className='col3'><button name={props.name} onClick={props.deleteOrder}><FaClose /></button></td>
     </tr>
   );
 };

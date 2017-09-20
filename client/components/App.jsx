@@ -176,7 +176,7 @@ class App extends Component {
     const item = {
       name: e.target.name,
       price: e.target.value,
-    }
+    };
     cart.items.push(item);
     cart.total += Number(e.target.value);
 
@@ -217,17 +217,16 @@ class App extends Component {
     e.target.phone.value = '';
   }
 
-  removeOrder() {
-    const cart = Object.assign({}, this.state);
-    
-    cart.items = [];
-    cart.total = 0;
-
-    this.setState({ cart });
+  removeOrder(e) {
+    // const cart = Object.assign({}, this.state.cart);
+    // cart.items = cart.items.filter((x, index) => {
+    //   let str = e.target.name.toString();
+    //   return x.name !== str;
+    // });
+    // this.setState({ cart });
   }
 
   toggleModal() {
-    console.log('click working');
     const obj = Object.assign({}, this.state);
     let view = obj.view;
 

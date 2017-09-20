@@ -16,14 +16,14 @@ const Home = (props) => {
           <p id="welcomeTag">Welcome Back {props.auth.username}</p>
           <h1 id="title">OrderMe</h1>
         </header>
-        <div id="ad">OrderMe Prime is Saving You 10%!</div>
+        <div id="log-ad">OrderMe Prime is Saving You 10%!</div>
         <form id="searchForm" onSubmit={props.handleSearch}>
           <input id="search" name="search" placeholder="search"></input>
           <button id="searchButton" type="submit"><FaSearch /></button>
         </form>
         <div id="contentContainer">
           <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} />
-          <Cart submitOrder={props.submitOrder} cart={props.cart} auth={props.auth} />
+          <Cart submitOrder={props.submitOrder} deleteOrder={props.removeOrder} cart={props.cart} auth={props.auth} />
         </div>
         <footer />
       </div>
@@ -32,8 +32,8 @@ const Home = (props) => {
   return (
     <div id="homeContainer">
       <header id="homeHeader">
-        <button id="homeLogin" onClick={props.toggleView} >Log In</button>
-        <button id="homeCreate" onClick={props.toggleView} >Sign Up</button>
+        <button id="homeLogin" onClick={props.toggleView}>Log In</button>
+        <button id="homeCreate" onClick={props.toggleView}>Sign Up</button>
         <h1 id="title">OrderMe</h1>
       </header>
       <div id="ad">Sign-In for 10% Off All Items</div>
@@ -43,7 +43,7 @@ const Home = (props) => {
       </form>
       <div id="contentContainer">
         <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} toggleModal={props.toggleModal} />
-        <Cart submitOrder={props.submitOrder} cart={props.cart} auth={props.auth} />
+        <Cart submitOrder={props.submitOrder} deleteOrder={props.removeOrder} cart={props.cart} auth={props.auth} />
       </div>
       <footer />
     </div>
