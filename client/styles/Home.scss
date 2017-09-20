@@ -1,19 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Lora');
 
 /* Header Button Styles Variables */
+
 $h-button-color: #616283;
 $h-hover-color: #374A67;
 $h-button-border: 3px solid #616283;
 $h-hover-border: 3px solid #374A67;
 $h-border-radius: 5px;
-
 $order-button-color: #9E7B9B;
 $order-button-border: 3px solid #9E7B9B;
 $order-hover-color: #DDCECD;
 $order-hover-border: 3px solid #DDCECD;
-
 $content-box-shadow: 0px 10px -14px 14px #FFF;
-
 
 #homeContainer {
   background: #000000;
@@ -25,9 +23,35 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 }
 
 #title {
-  font-size: 28px;
+  font-family: 'Lora';
+  font-size: 50px;
   font-weight: bold;
-  color: #FBFAF8;
+  color: #6699ff;
+
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,.5)), to(rgba(0,0,0,1)));
+  letter-spacing: .1em;
+  text-shadow: 
+  0 -1px 0 #fff, 
+  0 1px 0 #2e2e2e, 
+  0 2px 0 #2c2c2c, 
+  0 3px 0 #2a2a2a, 
+  0 4px 0 #282828, 
+  0 5px 0 #262626, 
+  0 6px 0 #242424, 
+  0 7px 0 #222, 
+  0 8px 0 #202020, 
+  0 9px 0 #1e1e1e, 
+  0 10px 0 #1c1c1c, 
+  0 11px 0 #1a1a1a, 
+  0 12px 0 #181818, 
+  0 13px 0 #161616, 
+  0 14px 0 #141414, 
+  0 15px 0 #121212, 
+  0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+#homeHeader h1:hover {
+  cursor: pointer;
 }
 
 #homeHeader p {
@@ -38,11 +62,9 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 #homeHeader button {
   float: right;
   margin: 2px;
-
   font-size: 18px;
   font-weight: bold;
   color: #fff;
-
   background: $h-button-color;
   border: $h-button-border;
   border-radius: $h-border-radius;
@@ -56,13 +78,18 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 }
 
 #ad {
-  color: #FBFAF8;
   margin: 0 auto;
-  width: 100%;
-  text-align: center;
-  font-size: 44px;
-  text-decoration: underline;
+  width: 22%;
   margin-bottom: 20px;
+  background: #3CB371;
+  border: 5px solid #3CB371;
+  border-radius: 5px 2px 5px 2px;
+  -webkit-box-shadow: 0 0 1 em #3CB371;
+  box-shadow: 0 0 1em #3CB371;
+  font-size: 30px;
+  color: #FBFAF8;
+  font-style: italic; // text-decoration: underline;
+  text-align: center;
 }
 
 #homeContainer:hover #ad {
@@ -75,10 +102,8 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 
 #searchForm button {
   margin-left: 5px;
-
   color: white;
   font-weight: bold;
-
   background: $h-button-color;
   border: $h-button-border;
   border-radius: $h-border-radius;
@@ -95,11 +120,9 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
   flex-flow: row nowrap;
   margin: 0 auto;
   width: 85%;
-
   font-family: "Lora", helvetica, arial, sans-serif;
   background: #FBFAF8;
   border-radius: 5px;
-
   -webkit-box-shadow: $content-box-shadow;
   -moz-box-shadow: $content-box-shadow;
   -o-box-shadow: $content-box-shadow;
@@ -120,45 +143,60 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
   align-items: flex-start;
   padding-bottom: 25px;
   padding-left: 10px;
-
   background: #FBFAF8;
 }
 
 .listItem {
   display: flex;
   font-weight: bold;
-
-  border: 3px solid #0A122A;
+  border-bottom: 3px solid #0A122A;
   border-collapse: collapse;
-
   margin: auto;
-  padding: 10px;
+  padding: 25px;
   list-style: none;
 }
 
 .listItem img {
   width: 200px;
   height: 200px;
-
   padding-right: 10px;
 }
 
-.listItem button {
-  background: #9E7B9B;
-  border: 3px solid #9E7B9B;
-  border-radius: 5px;
-  cursor: pointer;
+
+.itemButton {
+  background: #17aa56;
+  border-radius: 8px;
+	color: #000000;
+  padding: 25px 25px 25px 50px;
+  
+  position: relative;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  transition: 0.25s;
+
+  &:hover,
+  &:focus { 
+    border-color: #000000;
+    border-radius: 14px;
+    color: #fff;
+  }
 }
 
-.listItem button:hover {
-  background: #DDCECD;
-  border: 3px solid #DDCECD;
-  border-radius: 5px;
+.itemButton:hover, .itemButton:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+.itemButton span {
+  position: absolute;
+  left: 20;
+  top: 35%;
 }
 
 .item-left {
   display: flex;
-  
   margin-right: 10px;
   border-right: 2px solid #d3d3d3;
 }
@@ -175,7 +213,6 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 
 .item-center p {
   max-width: 40ch;
-
   color: #d3d3d3;
   font-style: italic;
 }
@@ -185,7 +222,6 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   margin-left: 10px;
 }
 
@@ -242,23 +278,21 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 }
 
 
-
 /*
   Dropdown Styles
 */
-
 
 #dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
 }
 
-#dropdown:hover #dropdown-content{
+#dropdown:hover #dropdown-content {
   display: block;
   cursor: pointer;
 }

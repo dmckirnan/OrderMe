@@ -3,8 +3,7 @@
 html, body {
   background: #000000;
   font-family: "Roboto", helvetica, arial, sans-serif;
-}
 
-input[type="button"]:focus {
-  outline: none;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }

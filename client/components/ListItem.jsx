@@ -2,6 +2,8 @@ import React from 'react';
 import Styles from '../styles/Home.scss';
 import { applyDiscount } from './../../utils/conversions.js';
 
+import FaShoppingCart from 'react-icons/lib/fa/shopping-cart';
+
 const ListItem = (props) => {
   if (props.verified === true) {
     let price = Number(applyDiscount(props.price));
@@ -17,7 +19,7 @@ const ListItem = (props) => {
       <div className="item-right">
         <p className="presalePrice">{'$' + props.price}</p>
         <p className="salePrice">{'$' + price}</p>
-        <button name={props.name} value={price} className="itemButton" onClick={props.addToCart}>Add to Order</button>
+        <button name={props.name} value={price} className="itemButton" onClick={props.addToCart}><FaShoppingCart />Add to Order</button>
       </div>
     </li>
     );
@@ -33,7 +35,7 @@ const ListItem = (props) => {
       </div>
       <div className="item-right">
         <p>{props.price ? '$' + props.price : ''}</p>
-        <button name={props.name} value={props.price} className="itemButton" onClick={props.addToCart}>Add to Order</button>
+        <button name={props.name} value={props.price} className="itemButton" onClick={props.addToCart}><span><FaShoppingCart /></span>Add to Order</button>
       </div>
     </li>
   );
