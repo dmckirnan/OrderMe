@@ -1,5 +1,5 @@
 import React from 'react';
-import Cart from './Cart.jsx';
+import Cart from '../home-page/Cart.jsx';
 
 const Checkout = (props) => {
   return (
@@ -7,6 +7,10 @@ const Checkout = (props) => {
       <Cart cart={props.cart} auth={props.auth} verified={props.auth.verified} />
     </div>
   );
+};
+
+Checkout.propTypes = {
+
 };
 
 export default Checkout;

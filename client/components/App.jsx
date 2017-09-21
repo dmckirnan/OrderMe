@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Styles from './../styles/App.scss';
 import { applyDiscount } from './../../utils/conversions.js';
-import Login from './Login.jsx';
-import Create from './Create.jsx';
-import Home from './Home.jsx';
-import Checkout from './Checkout.jsx';
+import Login from './auth-page/Login.jsx';
+import Create from './auth-page/Create.jsx';
+import Home from './home-page/Home.jsx';
+import Checkout from './checkout-page/Checkout.jsx';
 
-import Modal from './Modal.jsx';
+import Modal from './home-page/Modal.jsx';
 
 class App extends Component {
   constructor(props) {

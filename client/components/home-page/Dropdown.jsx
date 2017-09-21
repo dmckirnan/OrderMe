@@ -1,5 +1,5 @@
-import React from 'react';
-import Styles from './../styles/Home.scss';
+import React, { PropTypes } from 'react';
+import Styles from './../../styles/Home.scss';
 
 const Dropdown = (props) => {
   return (
@@ -11,6 +11,10 @@ const Dropdown = (props) => {
       </div>
     </div>
   );
+};
+
+Dropdown.propTypes = {
+
 };
 
 export default Dropdown;

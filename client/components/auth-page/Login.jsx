@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 import Styles from './../styles/Login.scss';
 
 const Login = (props) => {
@@ -14,6 +14,12 @@ const Login = (props) => {
       <a id="createLink" onClick={props.toggleView}>New to Order Me? Create An Account!</a>
     </form>
   );
+};
+
+Login.propTypes = {
+  handleAuth: PropTypes.func.isRequired,
+  toggleView: PropTypes.func.isRequired,
+  redirect: PropTypes.bool.isRequired,
 };
 
 export default Login;

@@ -1,6 +1,6 @@
-import React from 'react';
-import Styles from './../styles/Home.scss';
-import { convertNum, findTax, processTotal } from './../../utils/conversions.js';
+import React, { PropTypes } from 'react';
+import Styles from './../../styles/Home.scss';
+import { convertNum, findTax, processTotal } from './../../../utils/conversions.js';
 import CartItem from './CartItem.jsx';
 
 const Cart = (props) => {
@@ -25,6 +25,13 @@ const Cart = (props) => {
       <button id='orderSubmit' onClick={props.submitOrder}>Checkout</button>
     </table>
   );
+};
+
+Cart.propTypes = {
+  cart: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  submitOrder: PropTypes.func.isRequired,
+  deleteOrder: PropTypes.func.isRequired,
 };
 
 export default Cart;

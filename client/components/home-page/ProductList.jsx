@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Styles from '../styles/Home.scss';
-import images from './../../data/images.js';
+import React, { PropTypes } from 'react';
+import Styles from '/../../styles/Home.scss';
+import images from './../../../data/images.js';
 import ListItem from './ListItem.jsx';
 import Dropdown from './Dropdown.jsx';
 
@@ -21,6 +21,14 @@ const ProductList = (props) => {
       {productsArr}
     </ul>
   );
+};
+
+ProductList.propTypes = {
+  products: PropTypes.array.isRequired,
+  auth: PropTypes.object.isRequired,
+  sortProducts: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func,
 };
 
 export default ProductList;

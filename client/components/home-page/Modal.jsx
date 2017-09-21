@@ -12,4 +12,8 @@ const Modal = props => {
   );
 };
 
+Modal.propTypes = {
+
+};
+
 export default Modal;

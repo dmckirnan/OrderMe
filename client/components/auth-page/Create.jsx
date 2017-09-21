@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Styles from './../styles/Create.scss';
 
 const Create = (props) => {
@@ -13,6 +13,11 @@ const Create = (props) => {
       <button id="createButton" type="submit">Create</button>
     </form>
   );
+};
+
+Create.propTypes = {
+  create: PropTypes.func.isRequired,
+  redirect: PropTypes.bool.isRequired,
 };
 
 export default Create;
