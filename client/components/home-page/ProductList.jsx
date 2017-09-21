@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Styles from '/../../styles/Home.scss';
+import Styles from './../../styles/Home.scss';
 import images from './../../../data/images.js';
 import ListItem from './ListItem.jsx';
 import Dropdown from './Dropdown.jsx';

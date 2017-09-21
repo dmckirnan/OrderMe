@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Styles from './../styles/Login.scss';
+import Styles from './../../styles/Login.scss';
 
 const Login = (props) => {
   const text = props.redirect === true ? 'Login Attempt Unsuccessful' : '';

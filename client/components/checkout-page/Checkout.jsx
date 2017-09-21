@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Cart from '../home-page/Cart.jsx';
 
 const Checkout = (props) => {
@@ -10,7 +10,10 @@ const Checkout = (props) => {
 };
 
 Checkout.propTypes = {
-
+  cart: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  update: PropTypes.func.isRequired,
+  verified: PropTypes.bool.isRequired,
 };
 
 export default Checkout;

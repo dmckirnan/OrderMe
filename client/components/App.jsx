@@ -7,8 +7,6 @@ import Create from './auth-page/Create.jsx';
 import Home from './home-page/Home.jsx';
 import Checkout from './checkout-page/Checkout.jsx';
 
-import Modal from './home-page/Modal.jsx';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -107,6 +105,7 @@ class App extends Component {
 
     if (e.target.id === 'createLink' || e.target.id === 'homeCreate') view = 'create';
     else if (e.target.id === 'homeLogin') view = 'login';
+    else if (e.target.id === 'title') view ='home';
     this.setState({ view });
   }
 
@@ -258,12 +257,6 @@ class App extends Component {
       return (
         <div id="checkoutContainer">
           <Checkout cart={this.state.cart} auth={this.state.auth} update={this.state.orderInfo} verified={this.state.auth.verified} />
-        </div>
-      );
-    } else if (this.state.view === 'modal') {
-      return (
-        <div id='modalContainer'>
-          <Modal />;
         </div>
       );
     }

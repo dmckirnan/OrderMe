@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Styles from '/../../styles/Home.scss';
+import Styles from './../../styles/Home.scss';
 import { applyDiscount } from './../../../utils/conversions.js';
 
 import FaShoppingCart from 'react-icons/lib/fa/shopping-cart';
