@@ -185,17 +185,18 @@ class App extends Component {
 
   submitOrder() {
     const obj = Object.assign({}, this.state);
+    const cart = Object.assign({}, this.state);
     let view = obj.view;
 
     axios.post('/createOrder', {
-      total: this.state.cart.total,
-      items: this.state.cart.items,
+      total: cart.total,
+      items: cart.items,
       name: 'placeholder',
       phone: 1234,
     }).then((response) => {
       if (response.data === true) {
         view = 'checkout';
-        this.setState({ view });
+        this.setState({ view, cart });
       } else console.log('Error with Order Submittal');
     });
   }
@@ -218,12 +219,16 @@ class App extends Component {
   }
 
   removeOrder(e) {
-    // const cart = Object.assign({}, this.state.cart);
-    // cart.items = cart.items.filter((x, index) => {
-    //   let str = e.target.name.toString();
-    //   return x.name !== str;
-    // });
-    // this.setState({ cart });
+    const cart = Object.assign({}, this.state.cart);
+    let num = Number(e.target.id);
+    console.log(num);
+    // console.log(num, 'fucking num');
+    // console.log(e.target.name, 'fucking target name');
+    cart.items = cart.items.filter((x, index) => {
+      console.log(index !== num);
+      return index !== num;
+    });
+    this.setState({ cart });
   }
 
   toggleModal() {
@@ -252,7 +257,7 @@ class App extends Component {
     } else if (this.state.view === 'checkout') {
       return (
         <div id="checkoutContainer">
-          <Checkout cart={this.state.cart} auth={this.state.username} update={this.state.orderInfo} />
+          <Checkout cart={this.state.cart} auth={this.state.auth} update={this.state.orderInfo} verified={this.state.auth.verified} />
         </div>
       );
     } else if (this.state.view === 'modal') {

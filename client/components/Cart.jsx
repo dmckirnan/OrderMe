@@ -10,7 +10,7 @@ const Cart = (props) => {
   if (!cart || cart.items.length === 0) cartArr.push(<CartItem key={0} />);
   else {
     for (let i = 0; i < cart.items.length; i += 1) {
-      cartArr.push(<CartItem deleteOrder={props.deleteOrder} verified={props.auth.verified} itemNum={i + 1} key={i} name={cart.items[i].name} price={cart.items[i].price} />);
+      cartArr.push(<CartItem id={i} deleteOrder={props.deleteOrder} verified={props.auth.verified} itemNum={i + 1} key={i} name={cart.items[i].name} price={cart.items[i].price} />);
     }
   }
 

@@ -11,7 +11,7 @@ const CartItem = (props) => {
       <tr className='row'>
         <td className='col1'>{props.name}</td>
         <td className='col2'>{props.price}<div className="discount">{('-' + getDiscount(props.price)) + ' (10% User Discount)'}</div></td>
-        <td className='col3'><button name={props.name} onClick={props.deleteOrder}><FaClose /></button></td>
+        <td className='col3' name={props.id}><button onClick={props.deleteOrder}><FaClose /></button></td>
       </tr>
     );
   }
@@ -19,7 +19,7 @@ const CartItem = (props) => {
     <tr className='row'>
       <td className='col1'>{props.name}</td>
       <td className='col2'>{props.price}</td>
-      <td className='col3'><button name={props.name} onClick={props.deleteOrder}><FaClose /></button></td>
+      <td className='col3' name={props.id}><button onClick={props.deleteOrder}><FaClose /></button></td>
     </tr>
   );
 };
