@@ -1,9 +1,16 @@
+$box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+$button-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+$button-color: #4479BA;
+$hover-color: #356094;
+$border-color: #20538D;
+$border-hover: solid 1px #2A4E77;
+
+
 #createForm {
   position: absolute;
   top: 30%;
-  right: 0;
   left: 37%;
-
+  right: 0;
 
   background: white;
   border-radius: 3px;
@@ -12,16 +19,19 @@
 
   height: 300px;
   width: 500px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  font-family: "Roboto", helvetica, arial, sans-serif;
+
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  -o-box-shadow: $box-shadow;
+  -ms-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
 }
 
-#createForm h2 {
+#createForm h2, h3 {
   text-align: center;
 }
 
 #createForm h3 {
-  text-align: center;
   color: red;
   font-family: 'Cursive',
 }
@@ -40,23 +50,27 @@
 #createForm button {
   display: block;
   margin: 0 auto;
+  padding: 7px;
+
   font-size: 14px;
   font-weight: bold;
-  border-color: #20538D;
-  border-radius: 4px;
   color: seashell;
-  background-color: #4479BA;
+
+  border-color: $border-color;
+  border-radius: 4px;
+
+  background-color: $button-color;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-
-  padding: 7px;
+  -webkit-box-shadow: $button-shadow;
+  -moz-box-shadow: $button-shadow;
+  -o-box-shadow: $button-shadow;
+  -ms-box-shadow: $button-shadow;
+	box-shadow: $button-shadow;
 }
 
 #createForm button:hover {
-  background: #356094;
-  border: solid 1px #2A4E77;
+  background: $hover-color;
+  border: $border-hover;
   cursor: pointer;
 }
