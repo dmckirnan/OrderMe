@@ -1,12 +1,16 @@
+/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
 const User = require('./../server/models/user.js');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('./../server/server.js');
+
 const should = chai.should();
+/* eslint-enable no-unused-vars */
 
 chai.use(chaiHttp);
 
+/* eslint-disable no-undef */
 describe('/createUser', () => {
   it('should create a user in DB', (done) => {
     const user = {
@@ -19,8 +23,8 @@ describe('/createUser', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.body.should.equal(true);
-      done();
-    });
+        done();
+      });
   });
   it('should not create a user without password field', (done) => {
     const user = {
@@ -32,8 +36,8 @@ describe('/createUser', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.body.should.equal(false);
-      done();
-    });
+        done();
+      });
   });
   it('should not create a user without username field', (done) => {
     const user = {
@@ -45,8 +49,8 @@ describe('/createUser', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.body.should.equal(false);
-      done();
-    });
+        done();
+      });
   });
   it('should not create a user with a username that already exists', (done) => {
     const user = {
@@ -59,20 +63,20 @@ describe('/createUser', () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.body.should.equal(false);
-      done();
-    });
+        done();
+      });
   });
 });
 
 describe('/verifyUser', () => {
   it('should get a user from DB by username', (done) => {
-      chai.request(server)
-        .post('/verifyUser')
-        .send({username: 'david', password: '123'})
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.equal(true);
+    chai.request(server)
+      .post('/verifyUser')
+      .send({ username: 'david', password: '123' })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.equal(true);
         done();
       });
-    });
+  });
 });

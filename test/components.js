@@ -1,5 +1,4 @@
 import React from 'react';
-/* eslint-disable no-undef */
 import { render } from 'enzyme';
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable import/extensions */
@@ -14,6 +13,7 @@ import CartItem from './../client/components/home-page/CartItem.jsx';
 import Dropdown from './../client/components/home-page/Dropdown.jsx';
 import Checkout from './../client/components/checkout-page/Checkout.jsx';
 
+/* eslint-disable no-undef */
 describe('<App />', () => {
   it('renders appropriate default state values', () => {
     const wrapper = shallow(<App />);
