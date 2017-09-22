@@ -1,15 +1,16 @@
 import React from 'react';
 import './../../styles/Ad.scss';
+import slideshowImages from './../../../data/slideshow';
 import SlideShowContainer from './SlideShowContainer.jsx';
 
 class SlideShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      slides: ['https://www.espressosupply.com/sites/all/files/imagecache/product_full/18520BL.png', 'https://images-na.ssl-images-amazon.com/images/I/31aiBakx4kL.jpg'],
+      slides: slideshowImages,
     };
     this.state.max = this.state.slides.length;
-    this.state.activeSlide = this.state.slides[0];
+    this.state.activeSlide = this.state.slides[0].url;
     this.state.active = 0;
     this.tick = this.tick.bind(this);
   }
