@@ -10,21 +10,20 @@ import Styles from './../../styles/Home.scss';
 //   }
 // }
 
-const Ad = props => {
-  let verified = props.auth === undefined ? false : props.auth.verified;
+const Ad = (props) => {
+  const verified = props.auth === undefined ? false : props.auth.verified;
   if (verified === true) {
     return (
       <div id="log-ad">OrderMe Prime is Saving You 10%!</div>
     );
-  } else {
-    return (
-      <div id="ad">Sign-In for 10% Off All Items</div>
-    );
   }
+  return (
+    <div id="ad">Sign-In for 10% Off All Items</div>
+  );
 };
 
 Ad.propTypes = {
-  auth: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default Ad;

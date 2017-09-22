@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import Styles from './../../styles/Home.scss';
 
-const Dropdown = (props) => {
-  return (
+const Dropdown = props =>
+  (
     <div id="dropdown">
       <span>Sort By: &#9660;</span>
       <div id="dropdown-content">
@@ -11,10 +11,9 @@ const Dropdown = (props) => {
       </div>
     </div>
   );
-};
 
 Dropdown.propTypes = {
-
+  sortProducts: PropTypes.func.isRequired,
 };
 
 export default Dropdown;

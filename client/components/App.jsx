@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import Styles from './../styles/App.scss';
-import { applyDiscount } from './../../utils/conversions.js';
+import { applyDiscount } from './../../utils/conversions';
+/* eslint-disable import/extensions */
 import Login from './auth-page/Login.jsx';
 import Create from './auth-page/Create.jsx';
 import Home from './home-page/Home.jsx';
@@ -66,7 +68,7 @@ class App extends Component {
     const cart = Object.assign({}, this.state.cart);
 
     let view = obj.view;
-    let temp = e.target.username.value;
+    const temp = e.target.username.value;
 
     axios.post('/verifyUser', {
       username: e.target.username.value,
@@ -105,7 +107,7 @@ class App extends Component {
 
     if (e.target.id === 'createLink' || e.target.id === 'homeCreate') view = 'create';
     else if (e.target.id === 'homeLogin') view = 'login';
-    else if (e.target.id === 'title') view ='home';
+    else if (e.target.id === 'title') view = 'home';
     this.setState({ view });
   }
 
@@ -117,7 +119,7 @@ class App extends Component {
     const cart = Object.assign({}, this.state.cart);
 
     let view = obj.view;
-    let temp = e.target.username.value;
+    const temp = e.target.username.value;
 
     axios.post('/createUser', {
       username: e.target.username.value,
@@ -150,8 +152,8 @@ class App extends Component {
     let search = obj.search;
     search = e.target.search.value;
 
-    products = products.filter(x => {
-      let lowerCase = x.name.toLowerCase();
+    products = products.filter((x) => {
+      const lowerCase = x.name.toLowerCase();
       return lowerCase.indexOf(e.target.search.value) !== -1;
     });
     this.setState({ products, search });
@@ -161,8 +163,7 @@ class App extends Component {
 
   sortProducts(e) {
     const obj = Object.assign({}, this.state);
-    let products = obj.products;
-    
+    const products = obj.products;
     if (e.target.id === 'priceLH') products.sort((a, b) => a.price - b.price);
     if (e.target.id === 'priceHL') products.sort((a, b) => b.price - a.price);
     if (e.target.id === 'quantityLH') products.sort((a, b) => a.quantity - b.quantity);
@@ -196,7 +197,11 @@ class App extends Component {
       if (response.data === true) {
         view = 'checkout';
         this.setState({ view, cart });
-      } else console.log('Error with Order Submittal');
+      } else {
+        /* eslint-disable no-console */
+        console.log('Error with Order Submittal');
+        /* eslint-enable no-console */
+      }
     });
   }
 
@@ -209,17 +214,17 @@ class App extends Component {
     axios.put('/updateOrder', {
       name: e.target.name.value,
       phone: e.target.phone.value,
-    }).then((response) => {
+    }).then(() => {
       view = 'home';
       this.setState({ view });
-    })
+    });
     e.target.name.value = '';
     e.target.phone.value = '';
   }
 
   removeOrder(e) {
     const cart = Object.assign({}, this.state.cart);
-    let num = Number(e.target.id);
+    const num = Number(e.target.id);
     console.log(num);
     // console.log(num, 'fucking num');
     // console.log(e.target.name, 'fucking target name');
@@ -244,27 +249,49 @@ class App extends Component {
     if (this.state.view === 'login') {
       return (
         <div id="loginContainer">
-          <Login handleAuth={this.handleAuth} toggleView={this.toggleView} redirect={this.state.auth.redirect} />
+          <Login
+            handleAuth={this.handleAuth}
+            toggleView={this.toggleView}
+            redirect={this.state.auth.redirect}
+          />
         </div>
       );
     } else if (this.state.view === 'create') {
       return (
         <div id="createContainer">
-          <Create create={this.handleCreate} redirect={this.state.auth.redirect} />
+          <Create
+            create={this.handleCreate}
+            redirect={this.state.auth.redirect}
+          />
         </div>
       );
     } else if (this.state.view === 'checkout') {
       return (
         <div id="checkoutContainer">
-          <Checkout cart={this.state.cart} auth={this.state.auth} update={this.state.orderInfo} verified={this.state.auth.verified} />
+          <Checkout
+            cart={this.state.cart}
+            auth={this.state.auth}
+            update={this.state.orderInfo}
+            verified={this.state.auth.verified}
+          />
         </div>
       );
     }
     return (
       <div>
-        <Home products={this.state.products} auth={this.state.auth} addToCart={this.addToCart} 
-        removeOrder={this.removeOrder} submitOrder={this.submitOrder} cart={this.state.cart} toggleView={this.toggleView} 
-        handleLogout={this.handleLogout} handleSearch={this.handleSearch} sortProducts={this.sortProducts} toggleModal={this.toggleModal} />
+        <Home
+          products={this.state.products}
+          auth={this.state.auth}
+          addToCart={this.addToCart}
+          removeOrder={this.removeOrder}
+          submitOrder={this.submitOrder}
+          cart={this.state.cart}
+          toggleView={this.toggleView}
+          handleLogout={this.handleLogout}
+          handleSearch={this.handleSearch}
+          sortProducts={this.sortProducts}
+          toggleModal={this.toggleModal}
+        />
       </div>
     );
   }

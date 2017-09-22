@@ -1,24 +1,39 @@
 import React, { PropTypes } from 'react';
 import Styles from './../../styles/Home.scss';
 
+/* eslint-disable import/extensions */
 import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
 import SearchForm from './SearchForm.jsx';
 import Header from './Header.jsx';
 import Ad from './Ad.jsx';
-import Modal from './Modal.jsx';
+// import Modal from './Modal.jsx';
 
 const Home = (props) => {
-  let verified = props.auth === undefined ? false : props.auth.verified;
+  const verified = props.auth === undefined ? false : props.auth.verified;
   if (verified === true) {
     return (
       <div id="homeContainer">
-        <Header toggleView={props.toggleView} auth={props.auth} handleLogout={props.handleLogout} />
+        <Header
+          toggleView={props.toggleView}
+          auth={props.auth}
+          handleLogout={props.handleLogout}
+        />
         <Ad auth={props.auth} />
         <SearchForm handleSearch={props.handleSearch} />
         <div id="contentContainer">
-          <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} />
-          <Cart submitOrder={props.submitOrder} deleteOrder={props.removeOrder} cart={props.cart} auth={props.auth} />
+          <ProductList
+            sortProducts={props.sortProducts}
+            products={props.products}
+            addToCart={props.addToCart}
+            auth={props.auth}
+          />
+          <Cart
+            submitOrder={props.submitOrder}
+            deleteOrder={props.removeOrder}
+            cart={props.cart}
+            auth={props.auth}
+          />
         </div>
         <footer />
       </div>
@@ -26,12 +41,26 @@ const Home = (props) => {
   }
   return (
     <div id="homeContainer">
-      <Header toggleView={props.toggleView} auth={props.auth} toggleView={props.toggleView} />
+      <Header
+        toggleView={props.toggleView}
+        auth={props.auth}
+      />
       <Ad auth={props.auth} />
       <SearchForm handleSearch={props.handleSearch} />
       <div id="contentContainer">
-        <ProductList sortProducts={props.sortProducts} products={props.products} addToCart={props.addToCart} auth={props.auth} toggleModal={props.toggleModal} />
-        <Cart submitOrder={props.submitOrder} deleteOrder={props.removeOrder} cart={props.cart} auth={props.auth} />
+        <ProductList
+          sortProducts={props.sortProducts}
+          products={props.products}
+          addToCart={props.addToCart}
+          auth={props.auth}
+          toggleModal={props.toggleModal}
+        />
+        <Cart
+          submitOrder={props.submitOrder}
+          deleteOrder={props.removeOrder}
+          cart={props.cart}
+          auth={props.auth}
+        />
       </div>
       <footer />
     </div>
@@ -39,9 +68,9 @@ const Home = (props) => {
 };
 
 Home.propTypes = {
-  products: PropTypes.array.isRequired,
-  auth: PropTypes.object.isRequired,
-  cart: PropTypes.object.isRequired,
+  products: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  auth: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  cart: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   addToCart: PropTypes.func.isRequired,
   removeOrder: PropTypes.func.isRequired,
   submitOrder: PropTypes.func.isRequired,
