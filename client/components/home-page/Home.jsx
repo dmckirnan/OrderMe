@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import './../../styles/Home.scss';
 
-/* eslint-disable import/extensions */
 import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
 import SearchForm from './SearchForm.jsx';
 import Header from './Header.jsx';
 import Ad from './Ad.jsx';
+// import SlideShow from './SlideShow.jsx';
 // import Modal from './Modal.jsx';
 
 const Home = (props) => {

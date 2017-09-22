@@ -1,14 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import './../../styles/Home.scss';
-
-// class Ad extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-
-//     };
-//   }
-// }
 
 const Ad = (props) => {
   const verified = props.auth === undefined ? false : props.auth.verified;

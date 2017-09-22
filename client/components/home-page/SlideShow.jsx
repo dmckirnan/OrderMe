@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import './../../styles/Ad.scss';
+import SlideShowContainer from './SlideShowContainer.jsx';
 
 class SlideShow extends React.Component {
   constructor(props) {
@@ -12,12 +13,15 @@ class SlideShow extends React.Component {
     this.state.active = 0;
     this.tick = this.tick.bind(this);
   }
+
   componentDidMount() {
     this.timer = setInterval(this.tick, 3000);
   }
+
   componentWillUnmount() {
     clearInterval(this.timer);
   }
+
   tick() {
     if (this.state.active === this.state.max - 1) {
       this.state.active = 0;
@@ -27,6 +31,7 @@ class SlideShow extends React.Component {
     this.state.activeSlide = this.state.slides[this.state.active];
     this.setState(this.state);
   }
+
   render() {
     return (
       <div>
@@ -34,22 +39,6 @@ class SlideShow extends React.Component {
           className="slideshowContainer"
           slide={this.state.activeSlide}
         />
-      </div>
-    );
-  }
-}
-
-class SlideShowContainer extends React.Component {
-  render() {
-    return (
-      <div>
-        <ReactCSSTransitionGroup
-          transitionName="example"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-        >
-          <img src={this.props.slide} alt="test" />
-        </ReactCSSTransitionGroup>
       </div>
     );
   }

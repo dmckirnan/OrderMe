@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import './../../styles/Home.scss';
 import images from './../../../data/images';
-/* eslint-disable import/extensions */
 import ListItem from './ListItem.jsx';
 import Dropdown from './Dropdown.jsx';
 
