@@ -1,5 +1,5 @@
-import React from 'react';
-import Styles from './../styles/Create.scss';
+import React, { PropTypes } from 'react';
+import Styles from './../../styles/Create.scss';
 
 const Create = (props) => {
   const text = props.redirect === true ? 'Username Already Exists' : '';
@@ -13,6 +13,11 @@ const Create = (props) => {
       <button id="createButton" type="submit">Create</button>
     </form>
   );
+};
+
+Create.propTypes = {
+  create: PropTypes.func.isRequired,
+  redirect: PropTypes.bool.isRequired,
 };
 
 export default Create;

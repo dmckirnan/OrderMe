@@ -1,17 +1,19 @@
 import React from 'react';
 import { render } from 'enzyme';
-
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/extensions */
 import App from './../client/components/App.jsx';
-import Login from './../client/components/Login.jsx';
-import Create from './../client/components/Create.jsx';
-import Home from './../client/components/Home.jsx';
-import ProductList from './../client/components/ProductList.jsx';
-import ListItem from './../client/components/ListItem.jsx';
-import Cart from './../client/components/Cart.jsx';
-import CartItem from './../client/components/CartItem.jsx';
-import Dropdown from './../client/components/Dropdown.jsx';
-import Checkout from './../client/components/Checkout.jsx';
+import Login from './../client/components/auth-page/Login.jsx';
+import Create from './../client/components/auth-page/Create.jsx';
+import Home from './../client/components/home-page/Home.jsx';
+import ProductList from './../client/components/home-page/ProductList.jsx';
+import ListItem from './../client/components/home-page/ListItem.jsx';
+import Cart from './../client/components/home-page/Cart.jsx';
+import CartItem from './../client/components/home-page/CartItem.jsx';
+import Dropdown from './../client/components/home-page/Dropdown.jsx';
+import Checkout from './../client/components/checkout-page/Checkout.jsx';
 
+/* eslint-disable no-undef */
 describe('<App />', () => {
   it('renders appropriate default state values', () => {
     const wrapper = shallow(<App />);
@@ -19,8 +21,8 @@ describe('<App />', () => {
     expect(wrapper.state().products).to.deep.equal([]);
     expect(wrapper.state().search).to.equal('');
     expect(wrapper.state().view).to.equal('home');
-    expect(wrapper.state().cart).to.deep.equal({items: [], total: 0});
-    expect(wrapper.state().auth).to.deep.equal({verified: false, redirect: false, username: ''});
+    expect(wrapper.state().cart).to.deep.equal({ items: [], total: 0 });
+    expect(wrapper.state().auth).to.deep.equal({ verified: false, redirect: false, username: '' });
   });
   it('renders a <Login /> component if view is equal to login', () => {
     const wrapper = shallow(<App />);
@@ -85,10 +87,10 @@ describe('<App /> methods', () => {
     it('Alters current products array', () => {
       spy(App.prototype, 'handleSearch');
       const wrapper = mount(<App />);
-      wrapper.setState({ products: [{name: 'shoes', price: 19.99}, {name: 'socks', price: 12.99}], search: 'socks'});
+      wrapper.setState({ products: [{ name: 'shoes', price: 19.99 }, { name: 'socks', price: 12.99 }], search: 'socks' });
       wrapper.find('#searchButton').simulate('click');
       expect(App.prototype.handleSearch.calledOnce).to.equal(true);
-      expect(wrapper.state().products).to.deep.equal([{name: 'socks', price: 12.99}]);
+      expect(wrapper.state().products).to.deep.equal([{ name: 'socks', price: 12.99 }]);
     });
   });
   it('sortProducts', () => {
@@ -100,7 +102,7 @@ describe('<App /> methods', () => {
   it('submitOrder', () => {
     //
   });
-})
+});
 
 
 describe('<Login />', () => {
@@ -126,7 +128,7 @@ describe('<Create />', () => {
     expect(wrapper.find('#createButton')).to.have.length(1);
     expect(wrapper.find('h2')).to.have.length(1);
     expect(wrapper.find('h3')).to.have.length(1);
-  })
+  });
 });
 
 describe('<Home />', () => {
@@ -143,13 +145,13 @@ describe('<Home />', () => {
   });
   it('renders a <p> when auth.verified === true', () => {
     const wrapper = shallow(<Home />);
-    let auth = { verified: true, redirect: false, username: 'dave'};
+    const auth = { verified: true, redirect: false, username: 'dave'};
     wrapper.setProps({ auth });
     expect(wrapper.find('#logoutButton')).to.have.length(1);
   });
   it('does not render #homeLogin or #homeCreate buttons when auth.verified === true', () => {
     const wrapper = shallow(<App />);
-    let auth = { verified: true, redirect: false, username: 'dave'};
+    const auth = { verified: true, redirect: false, username: 'dave' };
     wrapper.setState({ auth });
     expect(wrapper.find('#homeLogin')).to.have.length(0);
     expect(wrapper.find('#homeCreate')).to.have.length(0);
@@ -158,7 +160,7 @@ describe('<Home />', () => {
     const wrapper = shallow(<Home />);
     expect(wrapper.find(ProductList)).to.have.length(1);
     expect(wrapper.find(Cart)).to.have.length(1);
-  })
+  });
 });
 
 describe('<ProductList />', () => {
@@ -172,8 +174,8 @@ describe('<ProductList />', () => {
   });
   it('should render as many <ListItem /> components as this.state.products.length', () => {
     const productListWrapper = shallow(<ProductList />);
-    let products = [{name: 'dog', price: 1}, {name: 'cat', price: 1}, {name: 'mouse', price: 1}];
-    let auth = { verified: false, redirect: false, username: ''};
+    const products = [{ name: 'dog', price: 1 }, { name: 'cat', price: 1 }, { name: 'mouse', price: 1 }];
+    const auth = { verified: false, redirect: false, username: '' };
     productListWrapper.setProps({ products, auth });
     expect(productListWrapper.find(ListItem)).to.have.length(3);
   });
@@ -201,8 +203,8 @@ describe('<Cart />', () => {
   });
   it('should render as many <CartItem /> components as this.state.cart.items.length', () => {
     const cartWrapper = shallow(<Cart />);
-    let cart = { items: [{name: 'toys', price: 1}, {name: 'dogs', price: 2}], total: 0 };
-    let auth = { verified: false, redirect: false, auth: ''};
+    const cart = { items: [{ name: 'toys', price: 1 }, { name: 'dogs', price: 2 }], total: 0 };
+    const auth = { verified: false, redirect: false, auth: '' };
     cartWrapper.setProps({ cart, auth });
     expect(cartWrapper.find(CartItem)).to.have.length(2);
   });
@@ -229,3 +231,5 @@ describe('<Dropdown />', () => {
 describe('<Checkout />', () => {
   //
 });
+
+/* eslint-enable no-undef */
