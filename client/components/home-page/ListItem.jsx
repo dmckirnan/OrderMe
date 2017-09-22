@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import FaShoppingCart from 'react-icons/lib/fa/shopping-cart';
-import Styles from './../../styles/Home.scss';
+import './../../styles/Home.scss';
 import { applyDiscount } from './../../../utils/conversions';
 
 const ListItem = (props) => {

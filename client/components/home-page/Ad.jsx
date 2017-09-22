@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Styles from './../../styles/Home.scss';
+import './../../styles/Home.scss';
 
 // class Ad extends Component {
 //   constructor(props) {

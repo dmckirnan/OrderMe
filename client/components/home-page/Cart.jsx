@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Styles from './../../styles/Home.scss';
+import './../../styles/Home.scss';
 /* eslint-disable import/extensions */
 import { convertNum, findTax, processTotal } from './../../../utils/conversions';
 import CartItem from './CartItem.jsx';
@@ -7,21 +7,16 @@ import CartItem from './CartItem.jsx';
 const Cart = (props) => {
   const cart = props.cart;
   const cartArr = [];
-
-  if (!cart || cart.items.length === 0) cartArr.push(<CartItem key={0} />);
-  else {
-    for (let i = 0; i < cart.items.length; i += 1) {
-      cartArr.push(
-        <CartItem
-          id={i}
-          deleteOrder={props.deleteOrder}
-          verified={props.auth.verified}
-          itemNum={i + 1}
-          key={i}
-          name={cart.items[i].name}
-          price={cart.items[i].price}
-        />);
-    }
+  for (let i = 0; i < cart.items.length; i += 1) {
+    cartArr.push(
+      <CartItem
+        identifier={i}
+        deleteOrder={props.deleteOrder}
+        verified={props.auth.verified}
+        key={i.toString()}
+        name={cart.items[i].name}
+        price={cart.items[i].price}
+      />);
   }
 
   return (

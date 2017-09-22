@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Styles from './../../styles/Home.scss';
+import './../../styles/Home.scss';
 
 /* eslint-disable import/extensions */
 import ProductList from './ProductList.jsx';

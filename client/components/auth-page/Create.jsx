@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Styles from './../../styles/Create.scss';
+import './../../styles/Create.scss';
 
 const Create = (props) => {
   const text = props.redirect === true ? 'Username Already Exists' : '';
