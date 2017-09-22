@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const mongoose = require('mongoose');
 const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
+/* eslint-enable no-unused-vars */
 
 const userController = require('./controllers/user.js');
 const orderController = require('./controllers/order.js');
@@ -31,6 +33,6 @@ app.delete('/deleteOrder', orderController.delete);
 app.get('/getProducts', productController.get);
 app.delete('/deleteProducts', productController.drop);
 
-
-let server = app.listen(3000, () => console.log('Listening on 3000'));
+/* eslint-disable no-console */
+const server = app.listen(3000, () => console.log('Listening on 3000'));
 module.exports = server;

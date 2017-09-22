@@ -19,7 +19,7 @@ const Cart = (props) => {
           itemNum={i + 1}
           key={i}
           name={cart.items[i].name}
-          price={cart.items[i].price} 
+          price={cart.items[i].price}
         />);
     }
   }

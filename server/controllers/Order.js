@@ -2,9 +2,9 @@ const Order = require('./../models/order.js');
 
 const orderController = {
   create: (req, res) => {
-    let created = Date.now();
+    const created = Date.now();
     Order.create({
-      created: created,
+      created,
       total: req.body.total,
       items: req.body.items,
       name: req.body.name,
@@ -17,11 +17,11 @@ const orderController = {
 
   update: (req, res) => {
     Order.findOne({ created: req.body.created }, (err, order) => {
-      if (err) console.log(err);
+      if (err) return err;
       order.name = req.body.name;
       order.phone = req.body.phone;
-      order.save((err) => {
-        if (err) console.log(err);
+      order.save((error) => {
+        if (error) return (error);
       });
       res.status(200).send(true);
     });

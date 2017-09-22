@@ -8,7 +8,6 @@ const userController = {
       return res.status(200).send(true);
     });
   },
-  
   create: (req, res) => {
     User.findOne({ username: req.body.username }, (err, result) => {
       if (result) return res.status(200).send(false);
