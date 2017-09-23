@@ -17,6 +17,7 @@ class App extends Component {
       products: [],
       search: '',
       view: 'home',
+      modalActive: false,
       cart: {
         items: [],
         total: 0,
@@ -233,14 +234,23 @@ class App extends Component {
     this.setState({ cart });
   }
 
-  toggleModal() {
+  toggleModal(e) {
     const obj = Object.assign({}, this.state);
-    let view = obj.view;
+    let modalActive = obj.modalActive;
+    let products = obj.products;
+    const productsStore = obj.productsStore;
 
-    if (view !== 'modal') view = 'modal';
-    else view = 'home';
-
-    this.setState({ view });
+    if (modalActive) {
+      products = productsStore;
+      modalActive = false;
+    } else {
+      products = products.filter((x) => {
+        return x.name === e.target.alt;
+      });
+      console.log(products);
+      modalActive = true;
+    }
+    this.setState({ products, modalActive });
   }
 
   render() {
@@ -289,6 +299,7 @@ class App extends Component {
           handleSearch={this.handleSearch}
           sortProducts={this.sortProducts}
           toggleModal={this.toggleModal}
+          modalActive={this.state.modalActive}
         />
       </div>
     );

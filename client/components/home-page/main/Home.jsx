@@ -5,8 +5,7 @@ import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
 import Header from './../header/Header.jsx';
 import SlideShow from './SlideShow.jsx';
-// import Ad from './Ad.jsx';
-// import Modal from './Modal.jsx';
+import ModalContainer from './ModalContainer.jsx';
 
 const Home = (props) => {
   const verified = props.auth === undefined ? false : props.auth.verified;
@@ -21,6 +20,11 @@ const Home = (props) => {
         />
         <SlideShow auth={props.auth} />
         <div id="contentContainer">
+          <ModalContainer
+            toggleModal={props.toggleModal}
+            modalActive={props.modalActive}
+            products={props.products}
+          />
           <ProductList
             sortProducts={props.sortProducts}
             products={props.products}
@@ -47,12 +51,19 @@ const Home = (props) => {
       />
       <SlideShow auth={props.auth} />
       <div id="contentContainer">
+        <ModalContainer
+          toggleModal={props.toggleModal}
+          modalActive={props.modalActive}
+          products={props.products}
+          addToCart={props.addToCart}
+        />
         <ProductList
           sortProducts={props.sortProducts}
           products={props.products}
           addToCart={props.addToCart}
           auth={props.auth}
           toggleModal={props.toggleModal}
+          modalActive={props.modalActive}
         />
         <Cart
           submitOrder={props.submitOrder}
@@ -70,6 +81,7 @@ Home.propTypes = {
   products: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   auth: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   cart: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  modalActive: PropTypes.bool.isRequired,
   addToCart: PropTypes.func.isRequired,
   removeOrder: PropTypes.func.isRequired,
   submitOrder: PropTypes.func.isRequired,
