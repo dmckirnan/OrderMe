@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import SearchForm from './../SearchForm.jsx';
+import './../../../styles/Header.scss';
+import SearchForm from './SearchForm.jsx';
 import LogoutDropdown from './LogoutDropdown.jsx';
 
 // <button id="logoutButton" onClick={props.handleLogout}>Log Out</button>
@@ -15,9 +16,11 @@ const Header = (props) => {
         <div id="header-center">
           <SearchForm handleSearch={props.handleSearch} />
         </div>
-        <div id="header-right">
-          <p id="welcomeTag">Welcome Back {props.auth.username}</p>
-          <LogoutDropdown handleLogout={props.handleLogout} />
+        <div id="header-right-auth">
+          <LogoutDropdown
+            handleLogout={props.handleLogout}
+            username={props.auth.username}
+          />
         </div>
       </header>
     );
@@ -30,7 +33,7 @@ const Header = (props) => {
       <div id="header-center">
         <SearchForm handleSearch={props.handleSearch} />
       </div>
-      <div id="header-right">
+      <div id="header-right-no-auth">
         <button id="homeLogin" onClick={props.toggleView}>Log In</button>
         <button id="homeCreate" onClick={props.toggleView}>Sign Up</button>
       </div>

@@ -1,0 +1,49 @@
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s linear;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity .5s linear;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+}
+
+img {
+  height: 400px;
+  width: 800px;
+}
+
+#slide-container {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: #080808;
+}
+
+div#slide-container img {
+  display: block;
+  margin: auto;
+}
+
+div#description-wrapper {
+  width: 42.25%;
+  margin: 0 auto;
+	text-align: center;
+	background-color:black;
+	color:white;
+	opacity:0.6; /* transparency */
+	filter:alpha(opacity=60); /* IE transparency */
+}
+
+p#slide-text {
+  padding:10px;
+	margin:0px;
+	font-size: 30px;
+}

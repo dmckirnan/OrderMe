@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
-import './../../styles/Home.scss';
-import { getDiscount } from './../../../utils/conversions';
+import './../../../styles/Home.scss';
+import { getDiscount } from './../../../../utils/conversions';
 
 const CartItem = (props) => {
   if (props.verified === true) {

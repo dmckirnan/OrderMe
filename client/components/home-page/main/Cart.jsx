@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import './../../styles/Home.scss';
-import { convertNum, findTax, processTotal } from './../../../utils/conversions';
+import './../../../styles/Home.scss';
+import { convertNum, findTax, processTotal } from './../../../../utils/conversions';
 import CartItem from './CartItem.jsx';
 
 const Cart = (props) => {

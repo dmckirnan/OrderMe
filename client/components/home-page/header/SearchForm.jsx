@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import FaSearch from 'react-icons/lib/fa/search';
-import './../../styles/Home.scss';
+import './../../../styles/Header.scss';
 
 const SearchForm = props =>
   (

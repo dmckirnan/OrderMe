@@ -1,6 +1,6 @@
 import React from 'react';
-import './../../styles/Ad.scss';
-import slideshowImages from './../../../data/slideshow';
+import './../../../styles/Slideshow.scss';
+import slideshowImages from './../../../../data/slideshow';
 import SlideShowContainer from './SlideShowContainer.jsx';
 
 class SlideShow extends React.Component {
@@ -10,7 +10,7 @@ class SlideShow extends React.Component {
       slides: slideshowImages,
     };
     this.state.max = this.state.slides.length;
-    this.state.activeSlide = this.state.slides[0].url;
+    this.state.activeSlide = this.state.slides[0];
     this.state.active = 0;
     this.tick = this.tick.bind(this);
   }

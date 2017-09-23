@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import './../../styles/Home.scss';
+import './../../../styles/Home.scss';
 
 const Dropdown = props =>
   (
