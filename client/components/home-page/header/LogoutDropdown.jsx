@@ -4,9 +4,9 @@ import './../../../styles/Header.scss';
 const LogoutDropdown = props =>
   (
     <div id="logout-dropdown">
-      <span>Welcome Back {props.username} &#9660;</span>
+      <span>{props.username}&#9660;</span>
       <div id="logout-dropdown-content">
-        <a href="#" id="logoutButton" onClick={props.handleLogout}>Lowest Price</a>
+        <a href="#" id="logoutButton" onClick={props.handleLogout}>Logout</a>
       </div>
     </div>
   );

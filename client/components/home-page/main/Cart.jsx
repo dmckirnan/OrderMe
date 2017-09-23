@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import FaArrowRight from 'react-icons/lib/fa/arrow-right';
+
 import './../../../styles/Home.scss';
 import { convertNum, findTax, processTotal } from './../../../../utils/conversions';
 import CartItem from './CartItem.jsx';
@@ -26,7 +28,7 @@ const Cart = (props) => {
       <p>SubTotal: <span>{props.cart !== undefined ? convertNum(props.cart.total) : ''}</span></p>
       <p>Tax @ %8.00: <span>{props.cart !== undefined ? findTax(props.cart.total) : ''}</span></p>
       <p>Grand Total: <span>{props.cart !== undefined ? processTotal(props.cart.total) : ''}</span></p>
-      <button id="orderSubmit" onClick={props.submitOrder}>Checkout</button>
+      <button id="orderSubmit" onClick={props.submitOrder}>Checkout<FaArrowRight /></button>
     </table>
   );
 };

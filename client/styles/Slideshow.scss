@@ -19,12 +19,13 @@
 img {
   height: 400px;
   width: 800px;
+  box-shadow: 10px 10px 5px #000000;
 }
 
 #slide-container {
   padding-top: 25px;
   padding-bottom: 25px;
-  background: #080808;
+  background: rgb(32, 33, 33);
 }
 
 div#slide-container img {
@@ -33,17 +34,22 @@ div#slide-container img {
 }
 
 div#description-wrapper {
-  width: 42.25%;
+  width: 35%;
   margin: 0 auto;
 	text-align: center;
-	background-color:black;
-	color:white;
-	opacity:0.6; /* transparency */
-	filter:alpha(opacity=60); /* IE transparency */
 }
 
 p#slide-text {
-  padding:10px;
+  position: absolute;
+  top: 419;
+  left: 551;
+  background-color: #000000;
+  color:white;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
 	margin:0px;
-	font-size: 30px;
+  font-size: 30px;
+  opacity: .8;
 }

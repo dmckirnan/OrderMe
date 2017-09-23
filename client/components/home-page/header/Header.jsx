@@ -10,30 +10,20 @@ const Header = (props) => {
   if (verified === true) {
     return (
       <header id="homeHeader">
-        <div id="header-left">
-          <h1 id="title">OrderMe</h1>
-        </div>
-        <div id="header-center">
-          <SearchForm handleSearch={props.handleSearch} />
-        </div>
-        <div id="header-right-auth">
-          <LogoutDropdown
-            handleLogout={props.handleLogout}
-            username={props.auth.username}
-          />
-        </div>
+        <h1 id="title">OrderMe</h1>
+        <SearchForm handleSearch={props.handleSearch} />
+        <LogoutDropdown
+          handleLogout={props.handleLogout}
+          username={props.auth.username}
+        />
       </header>
     );
   }
   return (
     <header id="homeHeader">
-      <div id="header-left">
-        <h1 id="title">OrderMe</h1>
-      </div>
-      <div id="header-center">
-        <SearchForm handleSearch={props.handleSearch} />
-      </div>
-      <div id="header-right-no-auth">
+      <h1 id="title">OrderMe</h1>
+      <SearchForm handleSearch={props.handleSearch} />
+      <div id="buttonContainer">
         <button id="homeLogin" onClick={props.toggleView}>Log In</button>
         <button id="homeCreate" onClick={props.toggleView}>Sign Up</button>
       </div>

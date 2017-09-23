@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
 $h-button-color: #616283;
 $h-hover-color: #374A67;
 $h-button-border: 3px solid #616283;
@@ -9,110 +12,129 @@ $order-hover-color: #DDCECD;
 $order-hover-border: 3px solid #DDCECD;
 $content-box-shadow: 0px 10px -14px 14px #FFF;
 
+* {
+  font-family: "Roboto", helvetica, arial, sans-serif;
+}
+
 #homeHeader {
-  height: 125px;
+  height: 25px;
   width: 100%;
-  background-color: black;
+  background-color: #f4f7f6;
+  border-bottom: 1px solid #CCCBC6;
   color: #fff;
 
-  display: block;
-  padding-bottom: 50px;
+  display: inline-block;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #E6EAEA;
+
+  // position: fixed;
+  // overflow: hidden;
+  // z-index: 2;
+}
+
+#homeHeader h1 {
+  display: inline;
+}
+
+#homeHeader form {
+  display: inline;
 }
 
 #homeHeader div {
-  margin: 0;
-  padding: 0;
-}
-
-#homeHeader button {
   float: right;
-  margin: 2px;
-  font-size: 18px;
-  font-weight: bold;
+}
+
+#homeLogin {
+  line-height: 49px;
+  background: #42AB9E;
   color: #fff;
-  background: $h-button-color;
-  border: $h-button-border;
-  border-radius: $h-border-radius;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0px solid rgb(255, 255, 255);
+  text-transform: uppercase;
 }
 
-#homeHeader button:hover {
-  background: $h-hover-color;
-  border: $h-hover-border;
-  border-radius: $h-border-radius;
+#homeCreate {
+  line-height: 49px;
+  background: #42AB9E;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0px solid rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+
+#buttonContainer button:hover {
   cursor: pointer;
-}
-
-#header-left {
-  float: left;
+  background: #389c90;
 }
 
 #title {
-  height: 100px;
-  width: 100%;
-  font-family: 'Lora';
-  font-size: 50px;
+  margin-top: 0px;
+  height: 45px;
+  background-color: black;
+  color: white;
+  font-size: 36px;
+  font-family: 'Raleway';
   font-weight: bold;
-  color: #6699ff;
-  letter-spacing: .1em;
-  text-shadow: 
-  0 -1px 0 #fff, 
-  0 1px 0 #2e2e2e, 
-  0 2px 0 #2c2c2c, 
-  0 3px 0 #2a2a2a, 
-  0 4px 0 #282828, 
-  0 5px 0 #262626, 
-  0 6px 0 #242424, 
-  0 7px 0 #222, 
-  0 8px 0 #202020, 
-  0 9px 0 #1e1e1e, 
-  0 10px 0 #1c1c1c, 
-  0 11px 0 #1a1a1a, 
-  0 12px 0 #181818, 
-  0 13px 0 #161616, 
-  0 14px 0 #141414, 
-  0 15px 0 #121212, 
-  0 22px 30px rgba(0, 0, 0, 0.9);
-
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,.5)), to(rgba(0,0,0,1)));
+  font-style: italic;
+  height: 1.5em;
+  width: 1.5em;
+  text-align: center;
+  border: 5px solid #d3d3d3;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 0.14em #d3d3d3;
 }
 
-#header-center {
-  
+h1:hover #title {
+  background-color: red;
+  box-shadow: 0px 0px 0px 0.13em red;
 }
 
-#searchForm {
-  width: 25%;
-  display: flex;
-  flex-direction: row;
+form#searchForm {
+  margin: 0;
+  width: 100px;
+  margin-right: 0px;
+  padding-left: 32%;
 }
 
 #searchForm button {
+  font-size: 18px;
+  height: 39px;
   margin-left: 5px;
   color: white;
   font-weight: bold;
-  background: $h-button-color;
-  border: $h-button-border;
-  border-radius: $h-border-radius;
+  background: #42AB9E;
+  border: 1px solid #42AB9E;
+  border-radius: 3px;
+}
+
+#searchForm button, #searchForm input {
+  display: inline;
+}
+
+#searchForm input {
+  width: 400px;
+  font-size: 18px;
+  line-height: 32px;
 }
 
 #searchForm button:hover {
-  background: $h-hover-color;
-  border: $h-hover-border;
-  border-radius: $h-border-radius;
-}
-
-#header-right {
-}
-
-#header-right-no-auth {
-  display: inline;
+  cursor: pointer;
+  background: #389c90;
 }
 
 #logout-dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 50px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
@@ -131,13 +153,15 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 }
 
 #logout-dropdown-content a:hover {
-  background-color: dodgerblue;
+  background: #000000;
+  color: #fff;
 }
 
 #logout-dropdown {
   color: #0A122A;
   margin-top: 15px;
   margin-bottom: 25px;
+  margin-right: 50px;
 }
 
 #logout-dropdown span {
