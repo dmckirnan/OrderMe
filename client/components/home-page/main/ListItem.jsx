@@ -10,7 +10,7 @@ const ListItem = (props) => {
     const discount = Number(getDiscount(props.price)).toFixed(2);
     return (
       <li className="listItem">
-        <div className="item-left">
+        <div className="item-left" name={props.name} onClick={props.toggleModal}>
           <img src={props.image} alt={props.name} />
         </div>
         <div className="item-center">
@@ -28,7 +28,7 @@ const ListItem = (props) => {
   }
   return (
     <li className="listItem">
-      <div className="item-left">
+      <div className="item-left" onClick={props.toggleModal}>
         <img src={props.image} alt={props.name} />
       </div>
       <div className="item-center">
@@ -48,7 +48,7 @@ ListItem.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  // toggleModal: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
 };
 
