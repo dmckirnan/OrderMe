@@ -44,7 +44,7 @@ ModalContainer.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   modalActive: PropTypes.bool.isRequired,
   addToCart: PropTypes.func.isRequired,
-  products: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default ModalContainer;
