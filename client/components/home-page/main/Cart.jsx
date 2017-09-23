@@ -1,27 +1,23 @@
 import React, { PropTypes } from 'react';
-import Styles from './../../styles/Home.scss';
-/* eslint-disable import/extensions */
-import { convertNum, findTax, processTotal } from './../../../utils/conversions';
+import FaArrowRight from 'react-icons/lib/fa/arrow-right';
+
+import './../../../styles/Home.scss';
+import { convertNum, findTax, processTotal } from './../../../../utils/conversions';
 import CartItem from './CartItem.jsx';
 
 const Cart = (props) => {
   const cart = props.cart;
   const cartArr = [];
-
-  if (!cart || cart.items.length === 0) cartArr.push(<CartItem key={0} />);
-  else {
-    for (let i = 0; i < cart.items.length; i += 1) {
-      cartArr.push(
-        <CartItem
-          id={i}
-          deleteOrder={props.deleteOrder}
-          verified={props.auth.verified}
-          itemNum={i + 1}
-          key={i}
-          name={cart.items[i].name}
-          price={cart.items[i].price}
-        />);
-    }
+  for (let i = 0; i < cart.items.length; i += 1) {
+    cartArr.push(
+      <CartItem
+        identifier={i}
+        deleteOrder={props.deleteOrder}
+        verified={props.auth.verified}
+        key={i.toString()}
+        name={cart.items[i].name}
+        price={cart.items[i].price}
+      />);
   }
 
   return (
@@ -32,7 +28,7 @@ const Cart = (props) => {
       <p>SubTotal: <span>{props.cart !== undefined ? convertNum(props.cart.total) : ''}</span></p>
       <p>Tax @ %8.00: <span>{props.cart !== undefined ? findTax(props.cart.total) : ''}</span></p>
       <p>Grand Total: <span>{props.cart !== undefined ? processTotal(props.cart.total) : ''}</span></p>
-      <button id="orderSubmit" onClick={props.submitOrder}>Checkout</button>
+      <button id="orderSubmit" onClick={props.submitOrder}>Checkout<FaArrowRight /></button>
     </table>
   );
 };

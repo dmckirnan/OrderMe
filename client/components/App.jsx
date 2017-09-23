@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Styles from './../styles/App.scss';
+import './../styles/App.scss';
 import { applyDiscount } from './../../utils/conversions';
-/* eslint-disable import/extensions */
 import Login from './auth-page/Login.jsx';
 import Create from './auth-page/Create.jsx';
-import Home from './home-page/Home.jsx';
+// import Home from './home-page/Home.jsx';
 import Checkout from './checkout-page/Checkout.jsx';
+import Home from './home-page/main/Home.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -179,7 +179,6 @@ class App extends Component {
     };
     cart.items.push(item);
     cart.total += Number(e.target.value);
-
     this.setState({ cart });
   }
 
@@ -225,13 +224,12 @@ class App extends Component {
   removeOrder(e) {
     const cart = Object.assign({}, this.state.cart);
     const num = Number(e.target.id);
-    console.log(num);
-    // console.log(num, 'fucking num');
-    // console.log(e.target.name, 'fucking target name');
+    let value;
     cart.items = cart.items.filter((x, index) => {
-      console.log(index !== num);
+      if (index === num) value = cart.items[index].price;
       return index !== num;
     });
+    cart.total -= value;
     this.setState({ cart });
   }
 

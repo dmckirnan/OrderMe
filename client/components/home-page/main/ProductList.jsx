@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
-import Styles from './../../styles/Home.scss';
-import images from './../../../data/images';
-/* eslint-disable import/extensions */
+import './../../../styles/Home.scss';
+import images from './../../../../data/images';
 import ListItem from './ListItem.jsx';
 import Dropdown from './Dropdown.jsx';
 
@@ -17,7 +16,6 @@ const ProductList = (props) => {
           toggleModal={props.toggleModal}
           addToCart={props.addToCart}
           verified={props.auth.verified}
-          itemNum={i + 1}
           key={i}
           sku={products[i].sku}
           image={images[products[i].name]}

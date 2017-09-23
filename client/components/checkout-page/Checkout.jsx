@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 /* eslint-disable import/extensions */
-import Cart from './../home-page/Cart.jsx';
+import Cart from './../home-page/main/Cart.jsx';
 
 const Checkout = props =>
   (

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+$h-button-color: #616283;
+$h-hover-color: #374A67;
+$h-button-border: 3px solid #616283;
+$h-hover-border: 3px solid #374A67;
+$h-border-radius: 5px;
+$order-button-color: #9E7B9B;
+$order-button-border: 3px solid #9E7B9B;
+$order-hover-color: #DDCECD;
+$order-hover-border: 3px solid #DDCECD;
+$content-box-shadow: 0px 10px -14px 14px #FFF;
+
+* {
+  font-family: "Roboto", helvetica, arial, sans-serif;
+}
+
+#homeHeader {
+  height: 25px;
+  width: 100%;
+  background-color: #f4f7f6;
+  border-bottom: 1px solid #CCCBC6;
+  color: #fff;
+
+  display: inline-block;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #E6EAEA;
+
+  // position: fixed;
+  // overflow: hidden;
+  // z-index: 2;
+}
+
+#homeHeader h1 {
+  display: inline;
+}
+
+#homeHeader form {
+  display: inline;
+}
+
+#homeHeader div {
+  float: right;
+}
+
+#homeLogin {
+  line-height: 49px;
+  background: #42AB9E;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0px solid rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+
+#homeCreate {
+  line-height: 49px;
+  background: #42AB9E;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0px solid rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+
+#buttonContainer button:hover {
+  cursor: pointer;
+  background: #389c90;
+}
+
+#title {
+  margin-top: 0px;
+  height: 45px;
+  background-color: black;
+  color: white;
+  font-size: 36px;
+  font-family: 'Raleway';
+  font-weight: bold;
+  font-style: italic;
+  height: 1.5em;
+  width: 1.5em;
+  text-align: center;
+  border: 5px solid #d3d3d3;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 0.14em #d3d3d3;
+}
+
+h1:hover #title {
+  background-color: red;
+  box-shadow: 0px 0px 0px 0.13em red;
+}
+
+form#searchForm {
+  margin: 0;
+  width: 100px;
+  margin-right: 0px;
+  padding-left: 32%;
+}
+
+#searchForm button {
+  font-size: 18px;
+  height: 39px;
+  margin-left: 5px;
+  color: white;
+  font-weight: bold;
+  background: #42AB9E;
+  border: 1px solid #42AB9E;
+  border-radius: 3px;
+}
+
+#searchForm button, #searchForm input {
+  display: inline;
+}
+
+#searchForm input {
+  width: 400px;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+#searchForm button:hover {
+  cursor: pointer;
+  background: #389c90;
+}
+
+#logout-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+#logout-dropdown:hover #logout-dropdown-content {
+  display: block;
+  cursor: pointer;
+}
+
+#logout-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#logout-dropdown-content a:hover {
+  background: #000000;
+  color: #fff;
+}
+
+#logout-dropdown {
+  color: #0A122A;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  margin-right: 50px;
+}
+
+#logout-dropdown span {
+  text-decoration: underline;
+}

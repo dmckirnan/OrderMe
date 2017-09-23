@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
-import Styles from './../../styles/Home.scss';
 
-/* eslint-disable import/extensions */
+import './../../../styles/Home.scss';
 import ProductList from './ProductList.jsx';
 import Cart from './Cart.jsx';
-import SearchForm from './SearchForm.jsx';
-import Header from './Header.jsx';
-import Ad from './Ad.jsx';
+import Header from './../header/Header.jsx';
+import SlideShow from './SlideShow.jsx';
+// import Ad from './Ad.jsx';
 // import Modal from './Modal.jsx';
 
 const Home = (props) => {
@@ -18,9 +17,9 @@ const Home = (props) => {
           toggleView={props.toggleView}
           auth={props.auth}
           handleLogout={props.handleLogout}
+          handleSearch={props.handleSearch}
         />
-        <Ad auth={props.auth} />
-        <SearchForm handleSearch={props.handleSearch} />
+        <SlideShow auth={props.auth} />
         <div id="contentContainer">
           <ProductList
             sortProducts={props.sortProducts}
@@ -44,9 +43,9 @@ const Home = (props) => {
       <Header
         toggleView={props.toggleView}
         auth={props.auth}
+        handleSearch={props.handleSearch}
       />
-      <Ad auth={props.auth} />
-      <SearchForm handleSearch={props.handleSearch} />
+      <SlideShow auth={props.auth} />
       <div id="contentContainer">
         <ProductList
           sortProducts={props.sortProducts}
