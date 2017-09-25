@@ -30,7 +30,7 @@ const ModalContainer = (props) => {
           <button id="modal-button" onClick={props.toggleModal}>x</button>
           <h2 id="modal-title">{props.products[0].name}</h2>
           <img id="modal-image" src={image} alt="test" />
-          <p id="modal-description"> test description </p>
+          <p id="modal-description">{props.products[0].description}</p>
           <p id="modal-price">{props.products[0].price}</p>
           <button name={props.products[0].name} value={props.products[0].price} className="itemButton" onClick={props.addToCart}><span><FaShoppingCart /></span>Add to Order</button>
         </Modal>

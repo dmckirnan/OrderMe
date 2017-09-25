@@ -20,6 +20,7 @@ const ProductList = (props) => {
           sku={products[i].sku}
           image={images[products[i].name]}
           name={products[i].name}
+          description={products[i].description}
           price={products[i].price}
           quantity={products[i].quantity}
         />,
