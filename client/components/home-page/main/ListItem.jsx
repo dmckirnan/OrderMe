@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import FaShoppingCart from 'react-icons/lib/fa/shopping-cart';
 
-import './../../../styles/Home.scss';
+import './../../../styles/ProductList.scss';
 import { applyDiscount, getDiscount } from './../../../../utils/conversions';
 
 const ListItem = (props) => {

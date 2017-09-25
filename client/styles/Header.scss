@@ -26,6 +26,8 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
   display: inline-block;
   padding-bottom: 25px;
   border-bottom: 1px solid #E6EAEA;
+  position: relative;
+  overflow: hidden;
 
   // position: fixed;
   // overflow: hidden;
@@ -38,6 +40,13 @@ $content-box-shadow: 0px 10px -14px 14px #FFF;
 
 #homeHeader form {
   display: inline;
+  position: relative;
+}
+
+#searchForm button {
+  position: absolute;
+  top: -10;
+  right: 0;
 }
 
 #homeHeader div {
@@ -106,7 +115,7 @@ form#searchForm {
 
 #searchForm button {
   font-size: 18px;
-  height: 39px;
+  height: 37px;
   margin-left: 5px;
   color: white;
   font-weight: bold;
