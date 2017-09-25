@@ -12,6 +12,7 @@ const dataManager = {
           sku: inventory[i].sku,
           name: inventory[i].name,
           price: inventory[i].price,
+          description: inventory[i].description,
           quantity: inventory[i].quantity,
         };
         productController.create(data);

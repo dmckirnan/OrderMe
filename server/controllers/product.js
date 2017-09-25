@@ -9,6 +9,7 @@ const productController = {
           sku: req.sku,
           name: req.name,
           price: req.price,
+          description: req.description,
           quantity: req.quantity,
         });
       } else return res.status(200).send(false);

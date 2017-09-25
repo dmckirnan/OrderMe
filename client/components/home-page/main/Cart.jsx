@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import FaArrowRight from 'react-icons/lib/fa/arrow-right';
 
-import './../../../styles/Home.scss';
+import './../../../styles/Cart.scss';
 import { convertNum, findTax, processTotal } from './../../../../utils/conversions';
 import CartItem from './CartItem.jsx';
 

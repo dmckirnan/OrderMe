@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import './../../../styles/Home.scss';
+import './../../../styles/ProductList.scss';
 import images from './../../../../data/images';
 import ListItem from './ListItem.jsx';
 import Dropdown from './Dropdown.jsx';
@@ -20,6 +20,7 @@ const ProductList = (props) => {
           sku={products[i].sku}
           image={images[products[i].name]}
           name={products[i].name}
+          description={products[i].description}
           price={products[i].price}
           quantity={products[i].quantity}
         />,

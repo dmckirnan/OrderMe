@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import FaShoppingCart from 'react-icons/lib/fa/shopping-cart';
 import Modal from 'react-modal';
 import images from './../../../../data/images';
+import './../../../styles/Modal.scss';
 
 const ModalContainer = (props) => {
   const customStyles = {
@@ -11,6 +12,8 @@ const ModalContainer = (props) => {
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
+      width: '750px',
+      height: '750px',
       transform: 'translate(-50%, -50%)',
     },
   };
@@ -26,9 +29,9 @@ const ModalContainer = (props) => {
         >
           <button id="modal-button" onClick={props.toggleModal}>x</button>
           <h2 id="modal-title">{props.products[0].name}</h2>
-          <p id="modal-price">{props.products[0].price}</p>
           <img id="modal-image" src={image} alt="test" />
-          <p id="modal-description"> test description </p>
+          <p id="modal-description">{props.products[0].description}</p>
+          <p id="modal-price">{props.products[0].price}</p>
           <button name={props.products[0].name} value={props.products[0].price} className="itemButton" onClick={props.addToCart}><span><FaShoppingCart /></span>Add to Order</button>
         </Modal>
       </div>
@@ -41,7 +44,7 @@ ModalContainer.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   modalActive: PropTypes.bool.isRequired,
   addToCart: PropTypes.func.isRequired,
-  products: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default ModalContainer;

@@ -1,0 +1,153 @@
+/* ProductList Styles */
+
+$font-color: #384047;
+$background-color: #f4f7f8;
+$button-background: #42ab9e;
+$button-hover: #389c90;
+$button-shadow: 0 3px #000000;
+$box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+$image-shadow: 3px 3px 10px 1px #aaa;
+
+
+#productList {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin-right: 100px;
+  padding-bottom: 25px;
+  padding-left: 10px;
+
+
+  color: $font-color;
+  background: $background-color;
+  border: 5px solid $background-color;
+  border-radius: 8px;
+
+  -webkit-box-shadow: $box-shadow;
+  -moz-box-shadow: $box-shadow;
+  -o-box-shadow: $box-shadow;
+  -ms-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}
+
+.listItem {
+  display: flex;
+  margin: auto;
+  border-bottom: 3px solid #CCCBC6;
+  border-collapse: collapse;
+  padding: 25px;
+
+  font-weight: bold;
+  list-style: none;
+}
+
+.listItem img {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+  border-radius: 8px;
+
+  image-rendering: auto;
+
+  -webkit-box-shadow: $image-shadow;
+  -moz-box-shadow: $image-shadow;
+  -o-box-shadow: $image-shadow;
+  -ms-box-shadow: $image-shadow;
+  box-shadow: $image-shadow;
+}
+
+
+.itemButton {
+  position: relative;
+  padding: 20px 20px 20px 40px;
+  background: $button-background;
+  
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  
+
+  transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+
+  &:hover,
+  &:focus { 
+    background: $button-hover;
+    
+    -webkit-transform: translateY(-0.25em);
+    -moz-transform: translateY(-0.25em);
+    -o-transform: translateY(-0.25em);
+    -ms-transform: translateY(-0.25em);
+    transform: translateY(-0.25em);
+
+    -webkit-box-shadow: $button-shadow;
+    -moz-box-shadow: $button-shadow;
+    -o-box-shadow: $button-shadow;
+    -ms-box-shadow: $button-shadow;
+    box-shadow: $button-shadow;
+  }
+}
+
+.itemButton span {
+  position: absolute;
+  left: 10;
+  top: 35%;
+}
+
+.item-left {
+  display: flex;
+  margin-right: 20px;
+
+  border-right: 2px solid #d3d3d3;
+}
+
+.item-center {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  
+  font-style: italic;
+}
+
+.item-center h2 {
+  max-width: 25ch;
+}
+
+.item-center p {
+  color: #717f86;
+  font-weight: 400;
+  font-style: italic;
+  max-width: 40ch;
+}
+
+.item-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.item-right p {
+  margin-bottom: 25px;
+  
+  font-size: 18px;
+}
+
+.presalePrice {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.discountValue {
+  font-style: italic;
+  color: red;
+}

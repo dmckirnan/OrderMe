@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import './../../../styles/Home.scss';
+import './../../../styles/Cart.scss';
 import { getDiscount } from './../../../../utils/conversions';
 
 const CartItem = (props) => {

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import FaShoppingCart from 'react-icons/lib/fa/shopping-cart';
 
-import './../../../styles/Home.scss';
+import './../../../styles/ProductList.scss';
 import { applyDiscount, getDiscount } from './../../../../utils/conversions';
 
 const ListItem = (props) => {
@@ -15,7 +15,7 @@ const ListItem = (props) => {
         </div>
         <div className="item-center">
           <h2>{props.name}</h2>
-          <p>This is test description, purposefully long so you have to style it you lazy ass.</p>
+          <p>{props.description}</p>
         </div>
         <div className="item-right">
           <p className="presalePrice">{`$ ${props.price}`}</p>
@@ -33,7 +33,7 @@ const ListItem = (props) => {
       </div>
       <div className="item-center">
         <h2>{props.name}</h2>
-        <p>This is test description, purposefully long so you have to style it you lazy ass.</p>
+        <p>{props.description}</p>
       </div>
       <div className="item-right">
         <p>{props.price ? `$ ${props.price}` : ''}</p>
@@ -47,6 +47,7 @@ ListItem.propTypes = {
   verified: PropTypes.bool.isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   toggleModal: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
