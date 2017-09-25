@@ -1,8 +1,10 @@
-$form-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
+$form-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 $box-shadow: 12px 15px 20px rgba(0, 0, 0, 0.1);
 $hover-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.1);
 $transition: 0.2s box-shadow ease-in-out, 0.2s background-color ease-in-out, 0.2s border-color ease-in-out;
+
 
 #createForm {
   position: absolute;
@@ -31,42 +33,47 @@ $transition: 0.2s box-shadow ease-in-out, 0.2s background-color ease-in-out, 0.2
 
 #createForm h3 {
   color: red;
-  font-family: 'Cursive',
+  font-family: 'Ubuntu', 'sans-serif';
 }
 
 #createForm input {
+  max-width: 100%;
   display: block;
   margin: 0 auto;
-  color: #666B85;
   margin-bottom: 5px;
+
+  color: #666B85;
   font-size: 14px;
   font-weight: normal;
+
+  -webkit-text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+  -moz-text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+  -o-text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+  -ms-text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
   text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
-  max-width: 100%;
 }
 
 #createForm button {
   display: block;
   margin: 0 auto;
+  padding: 1.2em 2em;
+  margin-top: 25px;
+  margin-bottom: 25px;
 
   font-family: 'Open Sans', sans-serif;
+  color: #fff;
   font-size: 12px;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.165em;
   background: #02b3e4;
-  color: #fff;
+  border: none;
+  border-radius: 4px;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
-
-  border: none;
-  border-radius: 4px;
-  padding: 1.2em 2em;
-  margin-top: 25px;
-  margin-bottom: 25px;
 
   -webkit-transition: $transition;
   -moz-transition: $transition;

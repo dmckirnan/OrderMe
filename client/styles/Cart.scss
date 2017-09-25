@@ -1,23 +1,29 @@
-/* 
-  Cart Styles
-*/
+/* Cart Styles */
+
+$cart-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+$transition-duration: 0.3s;
+$hover-transform: translateY(-0.25em);
+$hover-shadow: 0 3px #000000;
 
 #cartTable {
-  background: #f4f7f8;
-  border: 5px solid #f4f7f8;
   height: 300px;
   width: 450px;
   margin-left: 50px;
   margin-top: 16px;
-
   padding: 10px;
   padding-right: 25px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
-
-  font-size: 1.2em;
 
   color: #000000;
+  font-size: 1.2em;
+  background: #f4f7f8;
+  border: 5px solid #f4f7f8;
+  border-radius: 10px;
+
+  -webkit-box-shadow: $cart-shadow;
+  -moz-box-shadow: $cart-shadow;
+  -o-box-shadow: $cart-shadow;
+  -ms-box-shadow: $cart-shadow;
+  box-shadow: $cart-shadow;
 }
 
 #cartTable p {
@@ -30,27 +36,39 @@
 }
 
 #orderSubmit {
+  position: relative;
+  padding: 20px 20px 20px 20px;
+
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
   background: #42ab9e;
   border: none;
   border-radius: 8px;
-	color: #fff;
-  padding: 20px 20px 20px 20px;
-  
-  position: relative;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: bold;
 
-  // box-shadow: 2px 2px 5px #fff;
-  transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
+  transition-duration: $transition-duration;
+  -webkit-transition-duration: $transition-duration;
+  -moz-transition-duration: $transition-duration;
+  -o-transition-duration: $transition-duration;
+  -ms-transition-duration: $transition-duration;
 
   &:hover,
-  &:focus { 
-    transform: translateY(-0.25em);
-    // box-shadow: 2px 2px 20px #AFE9FF;
-    box-shadow: 0 3px #000000;
+  &:focus {
+    background: #389c90;
+
+    -webkit-transform: $hover-transform;
+    -moz-transform: $hover-transform;
+    -o-transform: $hover-transform;
+    -ms-transform: $hover-transform;
+    transform: $hover-transform;
+
+    -webkit-box-shadow: $hover-shadow;
+    -moz-box-shadow: $hover-shadow;
+    -o-box-shadow: $hover-shadow;
+    -ms-box-shadow: $hover-shadow;
+    box-shadow: $hover-shadow;
   }
 }
 
@@ -79,27 +97,38 @@
 }
 
 .row button {
+  position: relative;
+  padding: 5px 5px 5px 5px;
+  
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
   background: #42ab9e;
   border: none;
   border-radius: 8px;
-	color: #000000;
-  padding: 5px 5px 5px 5px;
-  
-  position: relative;
-  font-size: 14px;
   text-transform: uppercase;
-  font-weight: bold;
 
-  // box-shadow: 2px 2px 5px #fff;
-  transition-duration: 0.3s;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
+  transition-duration: $transition-duration;
+  -webkit-transition-duration: $transition-duration;
+  -moz-transition-duration: $transition-duration;
+  -o-transition-duration: $transition-duration;
+  -ms-transition-duration: $transition-duration;
 
   &:hover,
   &:focus { 
-    transform: translateY(-0.25em);
-    // box-shadow: 2px 2px 20px #AFE9FF;
-    box-shadow: 0 3px #000000;
+    background: #389c90;
+
+    -webkit-transform: $hover-transform;
+    -moz-transform: $hover-transform;
+    -o-transform: $hover-transform;
+    -ms-transform: $hover-transform;
+    transform: $hover-transform;
+
+    -webkit-box-shadow: $hover-shadow;
+    -moz-box-shadow: $hover-shadow;
+    -o-box-shadow: $hover-shadow;
+    -ms-box-shadow: $hover-shadow;
+    box-shadow: $hover-shadow;
   }
 }
 
