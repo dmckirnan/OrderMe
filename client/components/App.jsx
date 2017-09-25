@@ -5,7 +5,6 @@ import './../styles/App.scss';
 import { applyDiscount } from './../../utils/conversions';
 import Login from './auth-page/Login.jsx';
 import Create from './auth-page/Create.jsx';
-// import Home from './home-page/Home.jsx';
 import Checkout from './checkout-page/Checkout.jsx';
 import Home from './home-page/main/Home.jsx';
 

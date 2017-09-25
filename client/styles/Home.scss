@@ -3,7 +3,7 @@
 
 
 #homeContainer {
-  background: #f4f7f6;
+  background: #fff;
 }
 
 #homeContainer:hover #ad {
@@ -18,7 +18,13 @@
 
   
   font-family: "Raleway", helvetica, arial, sans-serif;
-  background: #f4f7f6;
+  background: #fff;
   border-radius: 5px;
   padding-top: 40px;
+}
+
+.spacer {
+  background: rgb(32, 33, 33);
+  width: 100%;
+  height: 75px;
 }

@@ -3,8 +3,6 @@ import './../../../styles/Header.scss';
 import SearchForm from './SearchForm.jsx';
 import LogoutDropdown from './LogoutDropdown.jsx';
 
-// <button id="logoutButton" onClick={props.handleLogout}>Log Out</button>
-
 const Header = (props) => {
   const verified = props.auth === undefined ? false : props.auth.verified;
   if (verified === true) {

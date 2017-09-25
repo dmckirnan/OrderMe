@@ -3,8 +3,8 @@
 */
 
 #cartTable {
-  background: #A9B7C0;
-  border: 5px solid #A9B7C0;
+  background: #f4f7f8;
+  border: 5px solid #f4f7f8;
   height: 300px;
   width: 450px;
   margin-left: 50px;
@@ -17,7 +17,7 @@
 
   font-size: 1.2em;
 
-  color: #fff;
+  color: #000000;
 }
 
 #cartTable p {
@@ -30,9 +30,10 @@
 }
 
 #orderSubmit {
-  background: #C7D8C6;
+  background: #42ab9e;
+  border: none;
   border-radius: 8px;
-	color: #000000;
+	color: #fff;
   padding: 20px 20px 20px 20px;
   
   position: relative;
@@ -78,7 +79,8 @@
 }
 
 .row button {
-  background: #C7D8C6;
+  background: #42ab9e;
+  border: none;
   border-radius: 8px;
 	color: #000000;
   padding: 5px 5px 5px 5px;

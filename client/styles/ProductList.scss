@@ -3,7 +3,7 @@
 */
 
 #productList {
-  color: #000000;
+  color: #384047;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -12,8 +12,8 @@
   padding-bottom: 25px;
   padding-left: 10px;
   margin-right: 100px;
-  background: #fff;
-  border: 5px solid #fff;
+  background: #f4f7f8;
+  border: 5px solid #f4f7f8;
   border-radius: 8px;
   // box-shadow: 10px 10px 5px grey;
   box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
@@ -40,9 +40,10 @@
 
 
 .itemButton {
-  background: #C7D8C6;
+  background: #42ab9e;
+  border: none;
   border-radius: 8px;
-	color: #000000;
+	color: #fff;
   padding: 20px 20px 20px 40px;
   
   position: relative;
@@ -89,8 +90,8 @@
 
 .item-center p {
   max-width: 40ch;
-  color: #d3d3d3;
-  font-weight: bold;
+  color: #717f86;
+  font-weight: 400;
   font-style: italic;
 }
 

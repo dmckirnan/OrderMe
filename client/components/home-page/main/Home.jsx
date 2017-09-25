@@ -18,6 +18,9 @@ const Home = (props) => {
           handleLogout={props.handleLogout}
           handleSearch={props.handleSearch}
         />
+        <div className="spacer">
+          &nbsp;
+        </div>
         <SlideShow auth={props.auth} />
         <div id="contentContainer">
           <ModalContainer
@@ -49,6 +52,9 @@ const Home = (props) => {
         auth={props.auth}
         handleSearch={props.handleSearch}
       />
+      <div className="spacer">
+        &nbsp;
+      </div>
       <SlideShow auth={props.auth} />
       <div id="contentContainer">
         <ModalContainer
