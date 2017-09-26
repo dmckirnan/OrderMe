@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-  created: { type: Date, required: true },
+  created: { type: String },
   total: { type: Number },
   items: { type: Array },
   name: { type: String },
-  phone: { type: Number },
+  phone: { type: String },
 });
 
 const Order = mongoose.model('Order', orderSchema);

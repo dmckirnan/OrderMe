@@ -12,7 +12,7 @@ const Cart = (props) => {
     cartArr.push(
       <CartItem
         identifier={i}
-        deleteOrder={props.deleteOrder}
+        removeFromCart={props.removeFromCart}
         verified={props.auth.verified}
         key={i.toString()}
         name={cart.items[i].name}
@@ -37,7 +37,7 @@ Cart.propTypes = {
   cart: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   auth: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   submitOrder: PropTypes.func.isRequired,
-  deleteOrder: PropTypes.func.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
 };
 
 export default Cart;
