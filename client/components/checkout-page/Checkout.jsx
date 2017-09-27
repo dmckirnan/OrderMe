@@ -6,7 +6,7 @@ const Checkout = props => {
   return (
     <div id="checkout-container">
       <div id="checkout-form">
-        <h2>Just a little information...</h2>
+        <h2>Just a little information for your order...</h2>
         <form onSubmit={props.orderInfo}>
           <input type="text" name="name" placeholder="Full Name" />
           <input type="phone" name="phone" placeholder="Phone Number: 7143896052" />
