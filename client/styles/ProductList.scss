@@ -58,6 +58,10 @@ $image-shadow: 3px 3px 10px 1px #aaa;
   box-shadow: $image-shadow;
 }
 
+.listItem img:hover {
+  cursor: pointer;
+}
+
 
 .itemButton {
   position: relative;
@@ -137,8 +141,7 @@ $image-shadow: 3px 3px 10px 1px #aaa;
 }
 
 .item-right p {
-  margin-bottom: 25px;
-  
+  margin-bottom: 10px;
   font-size: 18px;
 }
 

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+#checkout-form {
+  font-family: 'Open Sans Condensed', arial, sans;
+  width: 500px;
+  padding: 30px;
+  background: #FFFFFF;
+  margin: 50px auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+#checkout-form h2 {
+  background: #4D4D4D;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #797979;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 20px;
+  margin: -30px -30px 30px -30px;
+}
+
+#checkout-form input[type="text"],
+#checkout-form input[type="phone"],
+#checkout-form select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  font: 16px Arial, Helvetica, sans-serif;
+  height: 45px;
+}
+
+#checkout-form input[type="button"],
+#checkout-form input[type="submit"] {
+  -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  background-color: #2CBBBB;
+  border: 1px solid #27A0A0;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#checkout-form input[type="button"]:hover,
+#checkout-form input[type="submit"]:hover {
+  background: linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+  background-color: #34CACA;
+}
+
+#checkout-form input[type="submit"] {
+  float: right;
+}
+
+#checkout-container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+$cart-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+$transition-duration: 0.3s;
+$hover-transform: translateY(-0.25em);
+$hover-shadow: 0 3px #000000;
+
+#checkout-table {
+  height: 300px;
+  width: 500px;
+  margin: 50px auto;
+  padding: 10px;
+  padding-right: 25px;
+  color: #000000;
+  font-size: 1.2em;
+  background: #f4f7f8;
+  border: 5px solid #f4f7f8;
+  -webkit-box-shadow: $cart-shadow;
+  -moz-box-shadow: $cart-shadow;
+  -o-box-shadow: $cart-shadow;
+  -ms-box-shadow: $cart-shadow;
+  box-shadow: $cart-shadow;
+}
+
+#checkout-table p {
+  font-weight: bold;
+  font-style: italic;
+}
+
+#checkout-table span {
+  float: right;
+}
+
+#checkout-table h2 {
+  background: #4D4D4D;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #797979;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 20px;
+  margin: -20px -33px 20px -18px;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+#checkout-table tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-row {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.checkout-col1 {
+  max-width: 20ch;
+  margin-right: 250px;
+}
+
+.checkout-col2 {
+  max-width: 5ch;
+  margin-left: 10px;
+}
+
+.discount {
+  color: red;
+}
+
+#return-button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  box-shadow: inset 0px 1px 0px 0px #45D6D6;
+  background-color: #2CBBBB;
+  border: 1px solid #27A0A0;
+  float: right;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#return-button:hover {
+  background: linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+  background-color: #34CACA;
+}

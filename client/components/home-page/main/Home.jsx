@@ -27,16 +27,19 @@ const Home = (props) => {
             toggleModal={props.toggleModal}
             modalActive={props.modalActive}
             products={props.products}
+            addToCart={props.addToCart}
           />
           <ProductList
             sortProducts={props.sortProducts}
             products={props.products}
             addToCart={props.addToCart}
             auth={props.auth}
+            toggleModal={props.toggleModal}
+            modalActive={props.modalActive}
           />
           <Cart
             submitOrder={props.submitOrder}
-            deleteOrder={props.removeOrder}
+            removeFromCart={props.removeFromCart}
             cart={props.cart}
             auth={props.auth}
           />
@@ -73,7 +76,7 @@ const Home = (props) => {
         />
         <Cart
           submitOrder={props.submitOrder}
-          deleteOrder={props.removeOrder}
+          removeFromCart={props.removeFromCart}
           cart={props.cart}
           auth={props.auth}
         />
@@ -89,7 +92,7 @@ Home.propTypes = {
   cart: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   modalActive: PropTypes.bool.isRequired,
   addToCart: PropTypes.func.isRequired,
-  removeOrder: PropTypes.func.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
   submitOrder: PropTypes.func.isRequired,
   toggleView: PropTypes.func.isRequired,
   handleLogout: PropTypes.func.isRequired,

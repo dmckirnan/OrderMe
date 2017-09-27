@@ -20,6 +20,7 @@ class App extends Component {
       cart: {
         items: [],
         total: 0,
+        orderNumber: '',
       },
       auth: {
         verified: false,
@@ -35,9 +36,10 @@ class App extends Component {
     this.sortProducts = this.sortProducts.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.submitOrder = this.submitOrder.bind(this);
-    this.removeOrder = this.removeOrder.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.orderInfo = this.orderInfo.bind(this);
   }
 
   componentDidMount() {
@@ -107,7 +109,7 @@ class App extends Component {
 
     if (e.target.id === 'createLink' || e.target.id === 'homeCreate') view = 'create';
     else if (e.target.id === 'homeLogin') view = 'login';
-    else if (e.target.id === 'title') view = 'home';
+    else if (e.target.id === 'return-button') view = 'home';
     this.setState({ view });
   }
 
@@ -166,8 +168,6 @@ class App extends Component {
     const products = obj.products;
     if (e.target.id === 'priceLH') products.sort((a, b) => a.price - b.price);
     if (e.target.id === 'priceHL') products.sort((a, b) => b.price - a.price);
-    if (e.target.id === 'quantityLH') products.sort((a, b) => a.quantity - b.quantity);
-    if (e.target.id === 'quantityHL') products.sort((a, b) => b.quantity - a.quantity);
     this.setState({ products });
   }
 
@@ -184,7 +184,7 @@ class App extends Component {
 
   submitOrder() {
     const obj = Object.assign({}, this.state);
-    const cart = Object.assign({}, this.state);
+    const cart = Object.assign({}, this.state.cart);
     let view = obj.view;
 
     axios.post('/createOrder', {
@@ -193,8 +193,9 @@ class App extends Component {
       name: 'placeholder',
       phone: 1234,
     }).then((response) => {
-      if (response.data === true) {
+      if (response.data) {
         view = 'checkout';
+        cart.orderNumber = response.data.toString();
         this.setState({ view, cart });
       } else {
         /* eslint-disable no-console */
@@ -208,9 +209,10 @@ class App extends Component {
     e.preventDefault();
 
     const obj = Object.assign({}, this.state);
+    const cart = Object.assign({}, this.state.cart);
     let view = obj.view;
-
     axios.put('/updateOrder', {
+      created: cart.orderNumber,
       name: e.target.name.value,
       phone: e.target.phone.value,
     }).then(() => {
@@ -221,7 +223,7 @@ class App extends Component {
     e.target.phone.value = '';
   }
 
-  removeOrder(e) {
+  removeFromCart(e) {
     const cart = Object.assign({}, this.state.cart);
     const num = Number(e.target.id);
     let value;
@@ -234,6 +236,7 @@ class App extends Component {
   }
 
   toggleModal(e) {
+    console.log(e);
     const obj = Object.assign({}, this.state);
     let modalActive = obj.modalActive;
     let products = obj.products;
@@ -243,10 +246,7 @@ class App extends Component {
       products = productsStore;
       modalActive = false;
     } else {
-      products = products.filter((x) => {
-        return x.name === e.target.alt;
-      });
-      console.log(products);
+      products = products.filter(x => x.name === e.target.alt);
       modalActive = true;
     }
     this.setState({ products, modalActive });
@@ -278,8 +278,9 @@ class App extends Component {
           <Checkout
             cart={this.state.cart}
             auth={this.state.auth}
-            update={this.state.orderInfo}
+            orderInfo={this.orderInfo}
             verified={this.state.auth.verified}
+            toggleView={this.toggleView}
           />
         </div>
       );
@@ -290,7 +291,7 @@ class App extends Component {
           products={this.state.products}
           auth={this.state.auth}
           addToCart={this.addToCart}
-          removeOrder={this.removeOrder}
+          removeFromCart={this.removeFromCart}
           submitOrder={this.submitOrder}
           cart={this.state.cart}
           toggleView={this.toggleView}

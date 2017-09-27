@@ -11,7 +11,10 @@ const orderController = {
       phone: req.body.phone,
     }, (err) => {
       if (err) console.log(err);
-      else res.status(200).send(true);
+      else {
+        res.status(200);
+        res.send(created.toString());
+      }
     });
   },
 
