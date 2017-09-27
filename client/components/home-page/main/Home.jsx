@@ -27,12 +27,15 @@ const Home = (props) => {
             toggleModal={props.toggleModal}
             modalActive={props.modalActive}
             products={props.products}
+            addToCart={props.addToCart}
           />
           <ProductList
             sortProducts={props.sortProducts}
             products={props.products}
             addToCart={props.addToCart}
             auth={props.auth}
+            toggleModal={props.toggleModal}
+            modalActive={props.modalActive}
           />
           <Cart
             submitOrder={props.submitOrder}

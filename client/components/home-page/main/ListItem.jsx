@@ -10,7 +10,7 @@ const ListItem = (props) => {
     const discount = Number(getDiscount(props.price)).toFixed(2);
     return (
       <li className="listItem">
-        <div className="item-left" name={props.name} onClick={props.toggleModal}>
+        <div className="item-left" onClick={props.toggleModal}>
           <img src={props.image} alt={props.name} />
         </div>
         <div className="item-center">

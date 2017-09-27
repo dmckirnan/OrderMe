@@ -109,7 +109,7 @@ class App extends Component {
 
     if (e.target.id === 'createLink' || e.target.id === 'homeCreate') view = 'create';
     else if (e.target.id === 'homeLogin') view = 'login';
-    else if (e.target.id === 'title') view = 'home';
+    else if (e.target.id === 'return-button') view = 'home';
     this.setState({ view });
   }
 
@@ -236,6 +236,7 @@ class App extends Component {
   }
 
   toggleModal(e) {
+    console.log(e);
     const obj = Object.assign({}, this.state);
     let modalActive = obj.modalActive;
     let products = obj.products;
@@ -279,7 +280,7 @@ class App extends Component {
             auth={this.state.auth}
             orderInfo={this.orderInfo}
             verified={this.state.auth.verified}
-            removeFromCart={this.removeFromCart}
+            toggleView={this.toggleView}
           />
         </div>
       );

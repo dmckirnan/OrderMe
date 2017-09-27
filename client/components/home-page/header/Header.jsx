@@ -8,7 +8,7 @@ const Header = (props) => {
   if (verified === true) {
     return (
       <header id="homeHeader">
-        <h1 id="title">OrderMe</h1>
+        <h1 id="title" onClick={props.toggleView}>OrderMe</h1>
         <SearchForm handleSearch={props.handleSearch} />
         <LogoutDropdown
           handleLogout={props.handleLogout}
