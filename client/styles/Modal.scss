@@ -36,14 +36,16 @@
 #modal-presale {
   display: block;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   text-decoration: line-through;
 }
 
 #modal-price {
   display: block;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 #modal-discount {
@@ -51,11 +53,13 @@
   text-align: center;
   color: red;
   font-style: italic;
+  font-weight: bold;
 }
 
 #modal-final {
   display: block;
   text-align: center;
+  font-weight: bold;
 }
 
 #itemButton {
