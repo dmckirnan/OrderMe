@@ -28,6 +28,7 @@ const Home = (props) => {
             modalActive={props.modalActive}
             products={props.products}
             addToCart={props.addToCart}
+            verified={props.auth.verified}
           />
           <ProductList
             sortProducts={props.sortProducts}
@@ -65,6 +66,7 @@ const Home = (props) => {
           modalActive={props.modalActive}
           products={props.products}
           addToCart={props.addToCart}
+          verified={props.auth.verified}
         />
         <ProductList
           sortProducts={props.sortProducts}

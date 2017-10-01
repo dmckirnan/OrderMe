@@ -33,12 +33,32 @@
   border-radius: 5px;
 }
 
+#modal-presale {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: line-through;
+}
+
 #modal-price {
-  display: inline;
-  
+  display: block;
+  text-align: center;
   font-size: 16px;
 }
 
+#modal-discount {
+  display: block;
+  text-align: center;
+  color: red;
+  font-style: italic;
+}
+
+#modal-final {
+  display: block;
+  text-align: center;
+}
+
 #itemButton {
-  display: inline;
+  margin:0 auto;
+  display:block;
 }
