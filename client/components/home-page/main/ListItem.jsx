@@ -6,7 +6,7 @@ import { applyDiscount, getDiscount } from './../../../../utils/conversions';
 
 const ListItem = (props) => {
   if (props.verified === true) {
-    const price = Number(applyDiscount(props.price));
+    const price = Number(applyDiscount(props.price)).toFixed(2);
     const discount = Number(getDiscount(props.price)).toFixed(2);
     return (
       <li className="listItem">
@@ -21,7 +21,7 @@ const ListItem = (props) => {
           <p className="presalePrice">{`$ ${props.price}`}</p>
           <p className="discountValue">{`- ${discount}`}</p>
           <p className="salePrice">{`$ ${price}`}</p>
-          <button name={props.name} value={price} className="itemButton" onClick={props.addToCart}><FaShoppingCart />Add to Order</button>
+          <button name={props.name} value={price} className="itemButton" onClick={props.addToCart}><span><FaShoppingCart /></span>Add to Order</button>
         </div>
       </li>
     );

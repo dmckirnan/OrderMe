@@ -46,7 +46,7 @@ class App extends Component {
     this.fetchProducts();
     setTimeout(() => {
       this.fetchProducts();
-    }, 3000);
+    }, 5000);
   }
 
   fetchProducts() {
@@ -96,6 +96,7 @@ class App extends Component {
   handleLogout() {
     const obj = Object.assign({}, this.state);
     const auth = Object.assign({}, this.state.auth);
+
     let view = obj.view;
     view = 'home';
     auth.verified = false;
@@ -109,7 +110,9 @@ class App extends Component {
 
     if (e.target.id === 'createLink' || e.target.id === 'homeCreate') view = 'create';
     else if (e.target.id === 'homeLogin') view = 'login';
-    else if (e.target.id === 'return-button') view = 'home';
+    else if (e.target.id === 'return-button') {
+      view = 'home';
+    }
     this.setState({ view });
   }
 
@@ -211,13 +214,17 @@ class App extends Component {
     const obj = Object.assign({}, this.state);
     const cart = Object.assign({}, this.state.cart);
     let view = obj.view;
+
     axios.put('/updateOrder', {
       created: cart.orderNumber,
       name: e.target.name.value,
       phone: e.target.phone.value,
     }).then(() => {
       view = 'home';
-      this.setState({ view });
+      cart.items = [];
+      cart.total = 0;
+      cart.orderNumber = '';
+      this.setState({ view, cart });
     });
     e.target.name.value = '';
     e.target.phone.value = '';
@@ -236,7 +243,6 @@ class App extends Component {
   }
 
   toggleModal(e) {
-    console.log(e);
     const obj = Object.assign({}, this.state);
     let modalActive = obj.modalActive;
     let products = obj.products;
